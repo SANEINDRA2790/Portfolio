@@ -3,9 +3,11 @@
 import React from "react";
 import { Clock, Download, ShieldCheck, Mail } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
+import { useCvModal } from "@/context/OwnerContext";
 
 export function RecruiterSnapshot() {
   const { recruiterHighlights, personal } = PORTFOLIO_DATA;
+  const { openCvModal } = useCvModal();
 
   return (
     <section id="recruiter-fast-track" className="py-12 bg-[var(--bg-subtle)] border-y border-[var(--border-subtle)]">
@@ -23,14 +25,14 @@ export function RecruiterSnapshot() {
           </div>
 
           <div className="flex items-center gap-3">
-            <a
-              href={personal.resumePath}
-              download="Indra_Kiran_Sane_Resume.pdf"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--text-primary)] text-[var(--bg-page)] font-semibold text-xs hover:opacity-90 transition-opacity shadow-sm"
+            <button
+              onClick={openCvModal}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--text-primary)] text-[var(--bg-page)] font-semibold text-xs hover:opacity-90 transition-opacity shadow-sm cursor-pointer"
+              title="Download official CV (UK or India format)"
             >
               <Download className="w-3.5 h-3.5" />
               <span>Download CV (PDF)</span>
-            </a>
+            </button>
             <a
               href="#contact"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--text-secondary)] font-medium text-xs hover:text-[var(--text-primary)] hover:border-emerald-500/40 transition-colors"

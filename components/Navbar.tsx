@@ -4,11 +4,13 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Download, Menu, X, Database, Sun, Moon, FileText } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
+import { useCvModal } from "@/context/OwnerContext";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const { openCvModal } = useCvModal();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -119,15 +121,14 @@ export function Navbar() {
           </button>
 
           {/* CV Download button */}
-          <a
-            href={PORTFOLIO_DATA.personal.resumePath}
-            download="Indra_Kiran_Sane_Resume.pdf"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[var(--text-primary)] text-[var(--bg-page)] font-semibold text-xs hover:opacity-90 transition-all shadow-sm"
-            title="Download official CV"
+          <button
+            onClick={openCvModal}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[var(--text-primary)] text-[var(--bg-page)] font-semibold text-xs hover:opacity-90 transition-all shadow-sm cursor-pointer"
+            title="Download official CV (UK or India format)"
           >
             <Download className="w-3.5 h-3.5" />
             <span>Download CV</span>
-          </a>
+          </button>
         </div>
 
         {/* Mobile menu trigger */}
@@ -152,14 +153,13 @@ export function Navbar() {
             )}
           </button>
 
-          <a
-            href={PORTFOLIO_DATA.personal.resumePath}
-            download
-            className="p-1.5 rounded-md bg-[var(--text-primary)] text-[var(--bg-page)] text-xs"
-            title="Download CV"
+          <button
+            onClick={openCvModal}
+            className="p-1.5 rounded-md bg-[var(--text-primary)] text-[var(--bg-page)] text-xs cursor-pointer"
+            title="Download CV (UK or India format)"
           >
             <Download className="w-4 h-4" />
-          </a>
+          </button>
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -204,14 +204,16 @@ export function Navbar() {
               <span>More Documents Repository</span>
             </Link>
 
-            <a
-              href={PORTFOLIO_DATA.personal.resumePath}
-              download="Indra_Kiran_Sane_Resume.pdf"
-              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg bg-emerald-500 text-zinc-950 font-semibold text-sm hover:bg-emerald-400 transition-colors"
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                openCvModal();
+              }}
+              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg bg-emerald-500 text-zinc-950 font-semibold text-sm hover:bg-emerald-400 transition-colors cursor-pointer"
             >
               <Download className="w-4 h-4" />
-              <span>Download Full CV</span>
-            </a>
+              <span>Download CV (UK / India)</span>
+            </button>
           </div>
         </div>
       )}

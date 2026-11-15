@@ -34,7 +34,7 @@ import { AddCertificateModal } from "@/components/AddCertificateModal";
 import { useOwner } from "@/context/OwnerContext";
 
 export default function DocumentsPage() {
-  const { isOwner } = useOwner();
+  const { isOwner, openCvModal } = useOwner();
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [previewDoc, setPreviewDoc] = useState<DocumentItem | null>(null);
@@ -138,14 +138,14 @@ export default function DocumentsPage() {
               </button>
             )}
 
-            <a
-              href={PORTFOLIO_DATA.personal.resumePath}
-              download="Indra_Kiran_Sane_Resume.pdf"
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[var(--bg-card)] border border-[var(--border-subtle)] text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-emerald-500/40 transition-colors"
+            <button
+              onClick={openCvModal}
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[var(--bg-card)] border border-[var(--border-subtle)] text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-emerald-500/40 transition-colors cursor-pointer"
+              title="Download official CV (UK or India format)"
             >
               <Download className="w-3.5 h-3.5 text-emerald-500" />
               <span>Official CV</span>
-            </a>
+            </button>
           </div>
         </div>
 

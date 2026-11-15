@@ -14,9 +14,11 @@ import {
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/Icons";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
+import { useCvModal } from "@/context/OwnerContext";
 
 export function Hero() {
   const { personal } = PORTFOLIO_DATA;
+  const { openCvModal } = useCvModal();
 
   return (
     <section id="hero" className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden bg-grid-pattern">
@@ -70,14 +72,14 @@ export function Hero() {
             <ArrowRight className="w-4 h-4" />
           </a>
 
-          <a
-            href={personal.resumePath}
-            download="Indra_Kiran_Sane_Resume.pdf"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--text-primary)] font-medium text-sm hover:border-[var(--border-hover)] transition-all shadow-sm"
+          <button
+            onClick={openCvModal}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--text-primary)] font-medium text-sm hover:border-[var(--border-hover)] transition-all shadow-sm cursor-pointer"
+            title="Download CV (UK or India format)"
           >
             <Download className="w-4 h-4 text-emerald-500" />
             <span>Download CV</span>
-          </a>
+          </button>
 
           <a
             href="#contact"

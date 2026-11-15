@@ -1,0 +1,171 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 4 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Contents 5 0 R /Resources << /Font << /F1 7 0 R /F2 8 0 R /F3 9 0 R >> >> >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Contents 6 0 R /Resources << /Font << /F1 7 0 R /F2 8 0 R /F3 9 0 R >> >> >>
+endobj
+5 0 obj
+<< /Length 9678 >>
+stream
+BT /F2 18.00 Tf 0.06 0.10 0.16 rg 40.00 805.00 Td (INDRA KIRAN SANE) Tj ET
+BT /F2 10.00 Tf 0.08 0.50 0.38 rg 40.00 791.00 Td (Data Analyst  |  Aspiring Data Scientist  |  Software Engineer) Tj ET
+BT /F1 8.00 Tf 0.30 0.35 0.40 rg 40.00 778.00 Td (Location: Leicester, United Kingdom  |  Email: saneindradev2790@gmail.com  |  Phone: +44 07344738617) Tj ET
+BT /F1 8.00 Tf 0.30 0.35 0.40 rg 40.00 768.00 Td (LinkedIn: linkedin.com/in/indrakiran-sane  |  GitHub: github.com/SANEINDRA2790  |  Status: Open to UK Roles) Tj ET
+1.00 w 0.08 0.50 0.38 RG 40.00 764.00 m 555.28 764.00 l S
+BT /F2 10.50 Tf 0.04 0.38 0.28 rg 40.00 742.00 Td (PROFESSIONAL PROFILE) Tj ET
+0.80 w 0.15 0.55 0.42 RG 40.00 738.00 m 555.28 738.00 l S
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 40.00 728.00 Td (Commercially grounded Data Analyst and Software Engineer with 2+ years of enterprise production) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 40.00 716.50 Td (experience at Capgemini, currently pursuing an MSc in Data Science with Industry at the University) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 40.00 705.00 Td (of Leicester \(2026-2028\). Demonstrated track record of achieving a documented 20% database) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 40.00 693.50 Td (execution latency reduction across high-throughput transactional systems through SQL query tuning) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 40.00 682.00 Td (and stored procedure optimization. Experienced in developing full-stack enterprise applications) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 40.00 670.50 Td (\(.NET Core Web API, Angular, MySQL\), creating decision-driven executive business intelligence) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 40.00 659.00 Td (dashboards in Tableau and Power BI, and executing statistical exploratory data analysis in Python.) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 40.00 647.50 Td (Committed to delivering scalable, reproducible data solutions that translate complex transactional) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 40.00 636.00 Td (datasets into commercial business decisions.) Tj ET
+BT /F2 10.50 Tf 0.04 0.38 0.28 rg 40.00 610.50 Td (TECHNICAL COMPETENCIES & SKILLS) Tj ET
+0.80 w 0.15 0.55 0.42 RG 40.00 606.50 m 555.28 606.50 l S
+BT /F2 8.50 Tf 0.08 0.12 0.18 rg 40.00 596.50 Td (Data Analytics & EDA:) Tj ET
+BT /F1 8.20 Tf 0.20 0.24 0.28 rg 180.00 596.50 Td (Python \(Pandas, NumPy\), Exploratory Data Analysis, Statistical Analysis, Data Wrangling, Imputation, Hypothesis Testing) Tj ET
+BT /F2 8.50 Tf 0.08 0.12 0.18 rg 40.00 585.00 Td (Databases & Query Tuning:) Tj ET
+BT /F1 8.20 Tf 0.20 0.24 0.28 rg 180.00 585.00 Td (MySQL, SQL Stored Procedures, Composite B-Tree Indexing, Query Optimization, 3NF Relational Architecture, EXPLAIN Analysis) Tj ET
+BT /F2 8.50 Tf 0.08 0.12 0.18 rg 40.00 573.50 Td (Business Intelligence:) Tj ET
+BT /F1 8.20 Tf 0.20 0.24 0.28 rg 180.00 573.50 Td (Power BI, Tableau \(Tableau Public\), Excel \(Power Pivot, Dynamic DAX, Slicers\), KPI Dashboards, Reporting Automation) Tj ET
+BT /F2 8.50 Tf 0.08 0.12 0.18 rg 40.00 562.00 Td (Software Engineering:) Tj ET
+BT /F1 8.20 Tf 0.20 0.24 0.28 rg 180.00 562.00 Td (C#, .NET Core Web API, Angular, RESTful API Architecture, Object-Oriented Design, Agile/Scrum Sprints) Tj ET
+BT /F2 8.50 Tf 0.08 0.12 0.18 rg 40.00 550.50 Td (Machine Learning \(Applied\):) Tj ET
+BT /F1 8.20 Tf 0.20 0.24 0.28 rg 180.00 550.50 Td (Scikit-learn, Predictive Regression Modeling, Model Evaluation \(R2, RMSE, Cross-Validation\), Feature Scaling) Tj ET
+BT /F2 8.50 Tf 0.08 0.12 0.18 rg 40.00 539.00 Td (Cloud & Infrastructure:) Tj ET
+BT /F1 8.20 Tf 0.20 0.24 0.28 rg 180.00 539.00 Td (Microsoft Azure \(AI-102, AI-900, PL-300\), AWS Cloud Fundamentals \(CLF-C02\), Google Cloud ACE, Git Version Control) Tj ET
+BT /F2 10.50 Tf 0.04 0.38 0.28 rg 40.00 513.50 Td (PROFESSIONAL EXPERIENCE) Tj ET
+0.80 w 0.15 0.55 0.42 RG 40.00 509.50 m 555.28 509.50 l S
+BT /F2 9.50 Tf 0.08 0.12 0.18 rg 40.00 499.50 Td (Senior Analyst \(Software Engineer\)  |  Capgemini) Tj ET
+BT /F3 8.50 Tf 0.35 0.40 0.45 rg 315.28 499.50 Td (October 2023 - 2024  \(Enterprise Solutions Unit\)) Tj ET
+BT /F2 8.50 Tf 0.15 0.55 0.42 rg 42.00 487.50 Td (-) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 487.50 Td (Engineered and deployed full-stack enterprise web applications using .NET Core Web API, Angular,) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 476.50 Td (and MySQL within Agile production sprints.) Tj ET
+BT /F2 8.50 Tf 0.15 0.55 0.42 rg 42.00 463.50 Td (-) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 463.50 Td (Refactored high-concurrency SQL queries and transactional stored procedures, achieving a) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 452.50 Td (documented 20% reduction in database execution times.) Tj ET
+BT /F2 8.50 Tf 0.15 0.55 0.42 rg 42.00 439.50 Td (-) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 439.50 Td (Collaborated with cloud engineering teams on Microsoft Azure deployment pipelines, environment) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 428.50 Td (configuration, and backend API monitoring.) Tj ET
+BT /F2 8.50 Tf 0.15 0.55 0.42 rg 42.00 415.50 Td (-) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 415.50 Td (Conducted data cleansing and exploratory data reporting to support operational decision-making) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 404.50 Td (across core enterprise modules.) Tj ET
+BT /F2 8.50 Tf 0.15 0.55 0.42 rg 42.00 391.50 Td (-) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 391.50 Td (Authored comprehensive Standard Operating Procedures \(SOPs\) and technical documentation to) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 380.50 Td (streamline onboarding and maintain code quality.) Tj ET
+BT /F2 9.50 Tf 0.08 0.12 0.18 rg 40.00 367.50 Td (Junior Data Analyst Trainee  |  Innomatics Research Labs) Tj ET
+BT /F3 8.50 Tf 0.35 0.40 0.45 rg 295.28 367.50 Td (December 2022 - August 2023  \(Data Science Division\)) Tj ET
+BT /F2 8.50 Tf 0.15 0.55 0.42 rg 42.00 355.50 Td (-) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 355.50 Td (Processed and analyzed large tabular datasets utilizing Python \(Pandas, NumPy\) to isolate) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 344.50 Td (business trends, seasonal variance, and data anomalies.) Tj ET
+BT /F2 8.50 Tf 0.15 0.55 0.42 rg 42.00 331.50 Td (-) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 331.50 Td (Designed and maintained interactive executive dashboards in Tableau and Power BI, translating) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 320.50 Td (raw transactional logs into actionable KPI monitors.) Tj ET
+BT /F2 8.50 Tf 0.15 0.55 0.42 rg 42.00 307.50 Td (-) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 307.50 Td (Automated weekly reporting pipelines using SQL queries, Excel formulas, and VBA macro routines,) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 296.50 Td (eliminating 14 hours of manual copy-paste overhead.) Tj ET
+BT /F2 8.50 Tf 0.15 0.55 0.42 rg 42.00 283.50 Td (-) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 283.50 Td (Implemented supervised machine learning workflows including feature selection, data) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 272.50 Td (normalization, and baseline predictive regression models.) Tj ET
+BT /F2 10.50 Tf 0.04 0.38 0.28 rg 40.00 245.50 Td (ACADEMIC QUALIFICATIONS) Tj ET
+0.80 w 0.15 0.55 0.42 RG 40.00 241.50 m 555.28 241.50 l S
+BT /F2 9.50 Tf 0.08 0.12 0.18 rg 40.00 231.50 Td (MSc Data Science with Industry \(Postgraduate Degree\)  |  University of Leicester) Tj ET
+BT /F3 8.50 Tf 0.35 0.40 0.45 rg 355.28 231.50 Td (2026 - 2028  \(Leicester, United Kingdom\)) Tj ET
+BT /F2 8.50 Tf 0.15 0.55 0.42 rg 42.00 219.50 Td (-) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 219.50 Td (Current Postgraduate Specialization: Advanced statistical modeling, scalable data architectures,) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 208.50 Td (machine learning algorithms, and industrial UK practice.) Tj ET
+BT /F2 9.50 Tf 0.08 0.12 0.18 rg 40.00 195.50 Td (Bachelor of Technology \(B.Tech\) - Electronics & Communication  |  Sreenidhi Institute of Science & Tech) Tj ET
+BT /F3 8.50 Tf 0.35 0.40 0.45 rg 400.28 195.50 Td (2018 - 2022  \(Hyderabad, India\)) Tj ET
+BT /F2 8.50 Tf 0.15 0.55 0.42 rg 42.00 183.50 Td (-) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 183.50 Td (Coursework in computational mathematics, linear algebra, signal processing, and algorithms;) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 172.50 Td (authored 2 published peer-reviewed research papers.) Tj ET
+BT /F2 9.50 Tf 0.08 0.12 0.18 rg 40.00 159.50 Td (Intermediate / Higher Secondary Education \(MPC\)  |  Narayana Junior College) Tj ET
+BT /F3 8.50 Tf 0.35 0.40 0.45 rg 400.28 159.50 Td (2016 - 2018  \(Hyderabad, India\)) Tj ET
+BT /F2 8.50 Tf 0.15 0.55 0.42 rg 42.00 147.50 Td (-) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 147.50 Td (Focus on Mathematics, Physics, and Chemistry; developed advanced analytical problem-solving and) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 136.50 Td (quantitative reasoning foundations.) Tj ET
+BT /F2 10.50 Tf 0.04 0.38 0.28 rg 40.00 109.50 Td (VERIFIED PROFESSIONAL CERTIFICATIONS) Tj ET
+0.80 w 0.15 0.55 0.42 RG 40.00 105.50 m 555.28 105.50 l S
+BT /F2 8.50 Tf 0.15 0.55 0.42 rg 42.00 95.50 Td (-) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 50.00 95.50 Td (Microsoft Certified: Azure AI Engineer Associate \(AI-102\) - Cognitive Services, Knowledge Mining,) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 50.00 84.50 Td (Azure OpenAI) Tj ET
+BT /F2 8.50 Tf 0.15 0.55 0.42 rg 42.00 71.50 Td (-) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 50.00 71.50 Td (Microsoft Certified: Azure AI Fundamentals \(AI-900\) - Machine Learning workloads, Computer Vision,) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 50.00 60.50 Td (Responsible AI) Tj ET
+endstream
+endobj
+6 0 obj
+<< /Length 3472 >>
+stream
+BT /F2 8.50 Tf 0.15 0.55 0.42 rg 42.00 801.89 Td (-) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 50.00 801.89 Td (Microsoft Certified: Power BI Data Analyst Associate \(PL-300\) - DAX Formulas, Data Modeling,) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 50.00 790.89 Td (Dashboard Governance) Tj ET
+BT /F2 8.50 Tf 0.15 0.55 0.42 rg 42.00 777.89 Td (-) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 50.00 777.89 Td (AWS Certified Cloud Practitioner \(CLF-C02\) - Cloud Architecture Principles, Security, IAM, Cloud) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 50.00 766.89 Td (Economics) Tj ET
+BT /F2 8.50 Tf 0.15 0.55 0.42 rg 42.00 753.89 Td (-) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 50.00 753.89 Td (Google Cloud Associate Cloud Engineer \(ACE\) - GKE, Cloud Storage, Compute Engine Deployment,) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 50.00 742.89 Td (gcloud CLI) Tj ET
+BT /F2 8.50 Tf 0.15 0.55 0.42 rg 42.00 729.89 Td (-) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 50.00 729.89 Td (NASSCOM Certification: Python Fundamentals and Programming - Data Structures, Algorithmic) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 50.00 718.89 Td (Efficiency, Wrangling) Tj ET
+BT /F2 10.50 Tf 0.04 0.38 0.28 rg 40.00 691.89 Td (EMPIRICAL PROJECTS & RESEARCH PUBLICATIONS) Tj ET
+0.80 w 0.15 0.55 0.42 RG 40.00 687.89 m 555.28 687.89 l S
+BT /F2 9.50 Tf 0.08 0.12 0.18 rg 40.00 677.89 Td (Food Delivery Operational Analysis  |  Tableau Public Live Dashboard) Tj ET
+BT /F3 8.50 Tf 0.35 0.40 0.45 rg 395.28 677.89 Td (Interactive BI  \(45,000+ Orders\)) Tj ET
+BT /F2 8.50 Tf 0.15 0.55 0.42 rg 42.00 665.89 Td (-) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 665.89 Td (Engineered operational dashboard isolating courier lead times; proved kitchen preparation) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 654.89 Td (accounted for 58% of delay bottlenecks during rush periods.) Tj ET
+BT /F2 9.50 Tf 0.08 0.12 0.18 rg 40.00 641.89 Td (E-Commerce Relational Schema & SQL Tuning  |  MySQL Optimization Study) Tj ET
+BT /F3 8.50 Tf 0.35 0.40 0.45 rg 400.28 641.89 Td (Database Tuning  \(-93% Latency\)) Tj ET
+BT /F2 8.50 Tf 0.15 0.55 0.42 rg 42.00 629.89 Td (-) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 629.89 Td (Normalized 8-table enterprise schema in 3NF; added composite B-Tree indexing and stored) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 618.89 Td (procedures, cutting query execution from 1,840ms to 120ms.) Tj ET
+BT /F2 9.50 Tf 0.08 0.12 0.18 rg 40.00 605.89 Td (Medical Insurance Predictive Cost Modeling  |  Scikit-Learn Regression) Tj ET
+BT /F3 8.50 Tf 0.35 0.40 0.45 rg 410.28 605.89 Td (Machine Learning  \(R2 = 0.87\)) Tj ET
+BT /F2 8.50 Tf 0.15 0.55 0.42 rg 42.00 593.89 Td (-) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 593.89 Td (Built transparent regression pipeline predicting insurance premiums; cross-validated Random) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 582.89 Td (Forest Regressor yielding 0.87 R2 on holdout split.) Tj ET
+BT /F2 9.50 Tf 0.08 0.12 0.18 rg 40.00 569.89 Td (Research Paper: IoT Based Electricity Energy Meter  |  Int. Journal of Computer Science & Mobile Computing) Tj ET
+BT /F3 8.50 Tf 0.35 0.40 0.45 rg 425.28 569.89 Td (Published  \(Peer-Reviewed\)) Tj ET
+BT /F2 8.50 Tf 0.15 0.55 0.42 rg 42.00 557.89 Td (-) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 557.89 Td (Architected real-time power telemetry and consumption tracking hardware-software framework with) Tj ET
+BT /F1 8.50 Tf 0.15 0.18 0.22 rg 54.00 546.89 Td (automated demand-side load notifications.) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+8 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+9 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique >>
+endobj
+xref
+0 10
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000273 00000 n 
+0000000425 00000 n 
+0000010155 00000 n 
+0000013679 00000 n 
+0000013749 00000 n 
+0000013824 00000 n 
+trailer
+<< /Size 10 /Root 1 0 R >>
+startxref
+13902
+%%EOF

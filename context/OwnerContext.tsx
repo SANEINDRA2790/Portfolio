@@ -2,12 +2,16 @@
 
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { ShieldCheck, LogOut, KeyRound } from "lucide-react";
+import { DownloadCvModal } from "@/components/DownloadCvModal";
 
 interface OwnerContextType {
   isOwner: boolean;
   activateOwner: () => void;
   deactivateOwner: () => void;
   toggleOwner: () => void;
+  isCvModalOpen: boolean;
+  openCvModal: () => void;
+  closeCvModal: () => void;
 }
 
 const OwnerContext = createContext<OwnerContextType>({
@@ -15,10 +19,14 @@ const OwnerContext = createContext<OwnerContextType>({
   activateOwner: () => {},
   deactivateOwner: () => {},
   toggleOwner: () => {},
+  isCvModalOpen: false,
+  openCvModal: () => {},
+  closeCvModal: () => {},
 });
 
 export function OwnerProvider({ children }: { children: React.ReactNode }) {
   const [isOwner, setIsOwner] = useState<boolean>(false);
+  const [isCvModalOpen, setIsCvModalOpen] = useState<boolean>(false);
   const [mounted, setMounted] = useState<boolean>(false);
 
   useEffect(() => {
@@ -76,9 +84,25 @@ export function OwnerProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
+  const openCvModal = () => setIsCvModalOpen(true);
+  const closeCvModal = () => setIsCvModalOpen(false);
+
   return (
-    <OwnerContext.Provider value={{ isOwner, activateOwner, deactivateOwner, toggleOwner }}>
+    <OwnerContext.Provider
+      value={{
+        isOwner,
+        activateOwner,
+        deactivateOwner,
+        toggleOwner,
+        isCvModalOpen,
+        openCvModal,
+        closeCvModal,
+      }}
+    >
       {children}
+
+      {/* Global Interactive Download CV Modal */}
+      <DownloadCvModal isOpen={isCvModalOpen} onClose={closeCvModal} />
 
       {/* Floating Owner Mode Control Pill (Only rendered for the Portfolio Holder on their browser) */}
       {mounted && isOwner && (
@@ -104,5 +128,10 @@ export function OwnerProvider({ children }: { children: React.ReactNode }) {
 
 export function useOwner() {
   return useContext(OwnerContext);
+}
+
+export function useCvModal() {
+  const { isCvModalOpen, openCvModal, closeCvModal } = useContext(OwnerContext);
+  return { isCvModalOpen, openCvModal, closeCvModal };
 }
 

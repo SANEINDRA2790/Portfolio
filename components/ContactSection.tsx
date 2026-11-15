@@ -15,9 +15,11 @@ import {
 import Link from "next/link";
 import { GithubIcon, LinkedinIcon } from "@/components/Icons";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
+import { useCvModal } from "@/context/OwnerContext";
 
 export function ContactSection() {
   const { personal } = PORTFOLIO_DATA;
+  const { openCvModal } = useCvModal();
   const [copied, setCopied] = useState(false);
   const [phoneCopied, setPhoneCopied] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -214,14 +216,14 @@ export function ContactSection() {
                 <span>More Documents</span>
               </Link>
 
-              <a
-                href={personal.resumePath}
-                download="Indra_Kiran_Sane_Resume.pdf"
-                className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--text-primary)] text-[var(--bg-page)] text-xs font-semibold hover:opacity-90 transition-all"
+              <button
+                onClick={openCvModal}
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--text-primary)] text-[var(--bg-page)] text-xs font-semibold hover:opacity-90 transition-all cursor-pointer"
+                title="Download CV (UK or India format)"
               >
                 <Download className="w-4 h-4" />
                 <span>Download CV</span>
-              </a>
+              </button>
             </div>
           </div>
 

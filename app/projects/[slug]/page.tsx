@@ -16,6 +16,7 @@ import { GithubIcon } from "@/components/Icons";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
 import { CodeSnippetViewer } from "@/components/CodeSnippetViewer";
 import { TableauEmbed } from "@/components/TableauEmbed";
+import { ProjectCvButton } from "@/components/ProjectCvButton";
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
@@ -76,14 +77,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                 <span>Repository</span>
               </a>
             )}
-            <a
-              href={PORTFOLIO_DATA.personal.resumePath}
-              download="Indra_Kiran_Sane_Resume.pdf"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[var(--text-primary)] text-[var(--bg-page)] font-semibold text-xs hover:opacity-90 transition-opacity"
-            >
-              <Download className="w-3.5 h-3.5" />
-              <span>Resume</span>
-            </a>
+            <ProjectCvButton />
           </div>
         </div>
       </header>
