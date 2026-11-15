@@ -16,8 +16,10 @@ import { PORTFOLIO_DATA } from "@/data/portfolioData";
 import { CertificateItem } from "@/data/certificates";
 import { CertificateModal } from "./CertificateModal";
 import { AddCertificateModal } from "./AddCertificateModal";
+import { useOwner } from "@/context/OwnerContext";
 
 export function EducationCertifications() {
+  const { isOwner } = useOwner();
   const { education, certifications } = PORTFOLIO_DATA;
   const [selectedCert, setSelectedCert] = useState<CertificateItem | null>(null);
   const [expandedEdu, setExpandedEdu] = useState<Record<string, boolean>>({});
@@ -184,13 +186,16 @@ export function EducationCertifications() {
             </div>
 
             <div className="flex flex-wrap items-center gap-2 self-start sm:self-auto">
-              <button
-                onClick={() => setIsAddModalOpen(true)}
-                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-emerald-500 text-zinc-950 font-bold text-xs hover:bg-emerald-400 transition-all shadow-sm"
-              >
-                <Plus className="w-3.5 h-3.5" />
-                <span>Add Certificate</span>
-              </button>
+              {/* Only visible to Portfolio Holder (isOwner) */}
+              {isOwner && (
+                <button
+                  onClick={() => setIsAddModalOpen(true)}
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-emerald-500 text-zinc-950 font-bold text-xs hover:bg-emerald-400 transition-all shadow-sm"
+                >
+                  <Plus className="w-3.5 h-3.5" />
+                  <span>Add Certificate</span>
+                </button>
+              )}
               <span className="text-xs font-mono text-emerald-500 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20 font-semibold">
                 {allCerts.length} Verified Credentials
               </span>
@@ -246,13 +251,15 @@ export function EducationCertifications() {
         onClose={() => setSelectedCert(null)}
       />
 
-      {/* Add Certificate Modal */}
-      <AddCertificateModal
-        isOpen={isAddModalOpen}
-        onClose={() => setIsAddModalOpen(false)}
-        onAddDocument={() => {}}
-        onAddCertificate={handleAddCertificate}
-      />
+      {/* Add Certificate Modal (Only accessible if isOwner) */}
+      {isOwner && (
+        <AddCertificateModal
+          isOpen={isAddModalOpen}
+          onClose={() => setIsAddModalOpen(false)}
+          onAddDocument={() => {}}
+          onAddCertificate={handleAddCertificate}
+        />
+      )}
     </section>
   );
 }

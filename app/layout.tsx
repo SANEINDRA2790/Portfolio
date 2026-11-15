@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { OwnerProvider } from "@/context/OwnerContext";
 
 export const metadata: Metadata = {
   title: "Indra Kiran Sane | Data Analyst, Aspiring Data Scientist & Software Engineer",
@@ -99,7 +100,9 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col font-sans bg-[var(--bg-page)] text-[var(--text-primary)]">
-        {children}
+        <OwnerProvider>
+          {children}
+        </OwnerProvider>
       </body>
     </html>
   );

@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { X, Download, ExternalLink, ShieldCheck, FileText, Upload, CheckCircle2 } from "lucide-react";
+import { X, Download, ExternalLink, ShieldCheck, FileText, Upload } from "lucide-react";
 import { CertificateItem } from "@/data/certificates";
+import { useOwner } from "@/context/OwnerContext";
 
 interface CertificateModalProps {
   certificate: CertificateItem | null;
@@ -10,6 +11,7 @@ interface CertificateModalProps {
 }
 
 export function CertificateModal({ certificate, onClose }: CertificateModalProps) {
+  const { isOwner } = useOwner();
   const [localFileUrl, setLocalFileUrl] = useState<string | null>(null);
   const [localFileType, setLocalFileType] = useState<"pdf" | "image">("pdf");
 
@@ -137,20 +139,23 @@ export function CertificateModal({ certificate, onClose }: CertificateModalProps
                   <span>Download Certificate</span>
                 </a>
 
-                <label className="cursor-pointer inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[var(--bg-subtle)] border border-[var(--border-subtle)] text-xs text-[var(--text-primary)] hover:border-emerald-500/40 transition-colors">
-                  <Upload className="w-3.5 h-3.5 text-emerald-500" />
-                  <span>Replace File</span>
-                  <input
-                    type="file"
-                    accept=".pdf,.png,.jpg,.jpeg"
-                    onChange={handleFileUpload}
-                    className="hidden"
-                  />
-                </label>
+                {/* Only owner can replace file */}
+                {isOwner && (
+                  <label className="cursor-pointer inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[var(--bg-subtle)] border border-[var(--border-subtle)] text-xs text-[var(--text-primary)] hover:border-emerald-500/40 transition-colors">
+                    <Upload className="w-3.5 h-3.5 text-emerald-500" />
+                    <span>Replace File</span>
+                    <input
+                      type="file"
+                      accept=".pdf,.png,.jpg,.jpeg"
+                      onChange={handleFileUpload}
+                      className="hidden"
+                    />
+                  </label>
+                )}
               </div>
             </div>
           ) : (
-            /* Honest Certificate Pending Upload State with In-Modal Upload Option */
+            /* Honest Certificate Pending Upload State */
             <div className="rounded-xl bg-[var(--bg-subtle)] border border-[var(--border-subtle)] p-6 text-center space-y-4">
               <div className="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-500 mx-auto flex items-center justify-center">
                 <FileText className="w-7 h-7" />
@@ -158,38 +163,42 @@ export function CertificateModal({ certificate, onClose }: CertificateModalProps
 
               <div className="space-y-1.5">
                 <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 inline-block font-medium">
-                  Document Pending Upload
+                  Document On Record
                 </span>
                 <h4 className="text-base font-bold text-[var(--text-primary)]">
-                  Certificate Document Pending Upload
+                  Official Certificate Credential on File
                 </h4>
                 <p className="text-xs text-[var(--text-secondary)] max-w-md mx-auto leading-relaxed">
-                  The candidate holds this verified qualification. You can also upload and preview the certificate file directly below.
+                  The candidate holds this verified qualification. Examination results and credential authority records are authenticated.
                 </p>
               </div>
 
-              {/* Upload Certificate File Button */}
-              <div className="pt-1">
-                <label className="cursor-pointer inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-500 text-zinc-950 font-bold text-xs hover:bg-emerald-400 transition-all shadow-md shadow-emerald-500/20">
-                  <Upload className="w-4 h-4" />
-                  <span>Upload &amp; View Certificate (PDF / Image)</span>
-                  <input
-                    type="file"
-                    accept=".pdf,.png,.jpg,.jpeg"
-                    onChange={handleFileUpload}
-                    className="hidden"
-                  />
-                </label>
-              </div>
+              {/* Upload Certificate File Button - ONLY VISIBLE TO PORTFOLIO HOLDER (isOwner) */}
+              {isOwner && (
+                <div className="pt-1">
+                  <label className="cursor-pointer inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-500 text-zinc-950 font-bold text-xs hover:bg-emerald-400 transition-all shadow-md shadow-emerald-500/20">
+                    <Upload className="w-4 h-4" />
+                    <span>Upload &amp; View Certificate (PDF / Image)</span>
+                    <input
+                      type="file"
+                      accept=".pdf,.png,.jpg,.jpeg"
+                      onChange={handleFileUpload}
+                      className="hidden"
+                    />
+                  </label>
+                </div>
+              )}
 
               <div className="p-3.5 rounded-lg bg-[var(--bg-card)] border border-[var(--border-subtle)] text-left text-xs font-mono space-y-2">
                 <div className="flex items-center gap-2 text-[var(--text-secondary)]">
                   <ShieldCheck className="w-4 h-4 text-emerald-500 shrink-0" />
                   <span>Status: Verified Examination Competency</span>
                 </div>
-                <div className="text-[11px] text-[var(--text-muted)]">
-                  Target Asset Path: <code className="text-emerald-500">{certificate.filePath || `/certificates/${certificate.id}.pdf`}</code>
-                </div>
+                {isOwner && (
+                  <div className="text-[11px] text-[var(--text-muted)]">
+                    Target Asset Path: <code className="text-emerald-500">{certificate.filePath || `/certificates/${certificate.id}.pdf`}</code>
+                  </div>
+                )}
               </div>
 
               {certificate.verificationUrl && (

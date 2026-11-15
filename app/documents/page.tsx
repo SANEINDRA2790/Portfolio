@@ -7,7 +7,6 @@ import {
   Download,
   ExternalLink,
   Search,
-  CheckCircle2,
   Clock,
   ArrowLeft,
   ShieldCheck,
@@ -32,8 +31,10 @@ import {
 } from "@/data/documents";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
 import { AddCertificateModal } from "@/components/AddCertificateModal";
+import { useOwner } from "@/context/OwnerContext";
 
 export default function DocumentsPage() {
+  const { isOwner } = useOwner();
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [previewDoc, setPreviewDoc] = useState<DocumentItem | null>(null);
@@ -126,14 +127,16 @@ export default function DocumentsPage() {
           </Link>
 
           <div className="flex flex-wrap items-center gap-2.5">
-            {/* Prominent Add Certificate / Document Button */}
-            <button
-              onClick={() => setIsAddModalOpen(true)}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-emerald-500 text-zinc-950 hover:bg-emerald-400 font-semibold text-xs transition-all shadow-sm"
-            >
-              <Plus className="w-3.5 h-3.5" />
-              <span>Add Certificate / Document</span>
-            </button>
+            {/* Add Certificate / Document Button - ONLY VISIBLE TO PORTFOLIO HOLDER (isOwner) */}
+            {isOwner && (
+              <button
+                onClick={() => setIsAddModalOpen(true)}
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-emerald-500 text-zinc-950 hover:bg-emerald-400 font-semibold text-xs transition-all shadow-sm"
+              >
+                <Plus className="w-3.5 h-3.5" />
+                <span>Add Certificate / Document</span>
+              </button>
+            )}
 
             <a
               href={PORTFOLIO_DATA.personal.resumePath}
@@ -178,7 +181,7 @@ export default function DocumentsPage() {
           </div>
 
           <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-            This repository reflects verified certificates and explicitly authorized documents. You can also add your own verified credentials or certificates directly using the &ldquo;Add Certificate&rdquo; button above.
+            This repository reflects verified certificates and explicitly authorized documents. Documents listed below reflect authenticated academic records and certified examinations.
           </p>
         </div>
 
@@ -242,7 +245,8 @@ export default function DocumentsPage() {
                         <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--bg-subtle)] text-cyan-600 dark:text-cyan-300 border border-[var(--border-subtle)] font-medium">
                           {doc.type}
                         </span>
-                        {isCustom && (
+                        {/* Only owner can delete custom items */}
+                        {isOwner && isCustom && (
                           <button
                             onClick={() => handleDeleteCustomDoc(doc.id)}
                             className="p-1 rounded text-[var(--text-muted)] hover:text-rose-500 hover:bg-rose-500/10 transition-colors"
@@ -301,12 +305,19 @@ export default function DocumentsPage() {
                           <Clock className="w-3.5 h-3.5" />
                           <span>Pending Upload</span>
                         </span>
-                        <button
-                          onClick={() => setIsAddModalOpen(true)}
-                          className="text-[10px] text-cyan-600 dark:text-cyan-400 hover:underline font-mono"
-                        >
-                          Upload File
-                        </button>
+                        {/* Only owner sees upload link */}
+                        {isOwner ? (
+                          <button
+                            onClick={() => setIsAddModalOpen(true)}
+                            className="text-[10px] text-cyan-600 dark:text-cyan-400 hover:underline font-mono font-semibold"
+                          >
+                            Upload File
+                          </button>
+                        ) : (
+                          <span className="text-[10px] text-[var(--text-muted)] font-mono">
+                            On Record
+                          </span>
+                        )}
                       </div>
                     )}
                   </div>
@@ -334,12 +345,14 @@ export default function DocumentsPage() {
               >
                 Reset Filters
               </button>
-              <button
-                onClick={() => setIsAddModalOpen(true)}
-                className="px-3.5 py-1.5 rounded-lg bg-emerald-500 text-zinc-950 font-semibold text-xs hover:bg-emerald-400"
-              >
-                + Add Certificate
-              </button>
+              {isOwner && (
+                <button
+                  onClick={() => setIsAddModalOpen(true)}
+                  className="px-3.5 py-1.5 rounded-lg bg-emerald-500 text-zinc-950 font-semibold text-xs hover:bg-emerald-400"
+                >
+                  + Add Certificate
+                </button>
+              )}
             </div>
           </div>
         )}
@@ -403,12 +416,14 @@ export default function DocumentsPage() {
         </div>
       )}
 
-      {/* Add Certificate / Document Modal */}
-      <AddCertificateModal
-        isOpen={isAddModalOpen}
-        onClose={() => setIsAddModalOpen(false)}
-        onAddDocument={handleAddDocument}
-      />
+      {/* Add Certificate / Document Modal (Only accessible if isOwner) */}
+      {isOwner && (
+        <AddCertificateModal
+          isOpen={isAddModalOpen}
+          onClose={() => setIsAddModalOpen(false)}
+          onAddDocument={handleAddDocument}
+        />
+      )}
 
       {/* Universal Footer */}
       <Footer />
