@@ -1,8 +1,18 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, ExternalLink, Database, Cpu, BarChart3, LineChart, CheckCircle2, Table } from "lucide-react";
+import {
+  ArrowRight,
+  ExternalLink,
+  Database,
+  Cpu,
+  LineChart,
+  CheckCircle2,
+  Table,
+  ChevronDown,
+  ChevronUp,
+} from "lucide-react";
 import { GithubIcon } from "@/components/Icons";
 import { Project } from "@/data/portfolioData";
 
@@ -11,12 +21,14 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   // Render project-specific authentic preview
   const renderEvidencePreview = () => {
     if (project.liveDashboardUrl || project.category === "BI & Dashboards") {
       if (project.slug === "food-delivery-performance-bi") {
         return (
-          <div className="rounded-xl p-4 bg-[var(--bg-page)] border border-[var(--border-subtle)] space-y-3">
+          <div className="rounded-xl p-3.5 bg-[var(--bg-page)] border border-[var(--border-subtle)] space-y-2.5">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
@@ -48,7 +60,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
       // Sales Order Analysis (Excel/VBA)
       return (
-        <div className="rounded-xl p-4 bg-[var(--bg-page)] border border-[var(--border-subtle)] space-y-2.5">
+        <div className="rounded-xl p-3.5 bg-[var(--bg-page)] border border-[var(--border-subtle)] space-y-2">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Table className="w-3.5 h-3.5 text-emerald-500" />
@@ -69,7 +81,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
     if (project.category === "Database & SQL" || project.sqlSnippet) {
       return (
-        <div className="rounded-xl p-3.5 bg-[var(--bg-page)] border border-[var(--border-subtle)] font-mono text-xs space-y-2">
+        <div className="rounded-xl p-3 bg-[var(--bg-page)] border border-[var(--border-subtle)] font-mono text-xs space-y-2">
           <div className="flex items-center justify-between pb-1.5 border-b border-[var(--border-subtle)]">
             <div className="flex items-center gap-2 text-[var(--text-primary)]">
               <Database className="w-3.5 h-3.5 text-emerald-500" />
@@ -96,7 +108,7 @@ END;`}
 
     if (project.category === "Machine Learning") {
       return (
-        <div className="rounded-xl p-4 bg-[var(--bg-page)] border border-[var(--border-subtle)] space-y-3">
+        <div className="rounded-xl p-3.5 bg-[var(--bg-page)] border border-[var(--border-subtle)] space-y-2.5">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Cpu className="w-3.5 h-3.5 text-emerald-500" />
@@ -118,7 +130,7 @@ END;`}
 
     // Default / Automobile EDA (Python)
     return (
-      <div className="rounded-xl p-4 bg-[var(--bg-page)] border border-[var(--border-subtle)] space-y-2.5">
+      <div className="rounded-xl p-3.5 bg-[var(--bg-page)] border border-[var(--border-subtle)] space-y-2">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <LineChart className="w-3.5 h-3.5 text-emerald-500" />
@@ -138,11 +150,11 @@ END;`}
   };
 
   return (
-    <article className="rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-emerald-500/40 p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/5 group">
-      <div className="space-y-4">
+    <article className="rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-emerald-500/40 p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/5 group">
+      <div className="space-y-3">
         {/* Top Header: Category & Verifiable status */}
         <div className="flex items-center justify-between gap-2">
-          <span className="text-[11px] font-mono font-semibold px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
+          <span className="text-[11px] font-mono font-semibold px-2.5 py-0.5 rounded-md bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
             {project.category}
           </span>
           <span className="text-[11px] font-mono text-[var(--text-muted)]">
@@ -151,55 +163,90 @@ END;`}
         </div>
 
         {/* Project Title */}
-        <h3 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] group-hover:text-emerald-500 transition-colors">
+        <h3 className="text-lg sm:text-xl font-bold text-[var(--text-primary)] group-hover:text-emerald-500 transition-colors">
           <Link href={`/projects/${project.slug}`}>{project.title}</Link>
         </h3>
 
         {/* 1-Sentence Problem Statement */}
-        <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
+        <p className="text-xs text-[var(--text-secondary)] leading-relaxed line-clamp-2">
           <span className="font-semibold text-[var(--text-primary)]">Problem: </span>
           {project.problemStatement}
         </p>
 
         {/* Tools & Technologies */}
-        <div className="flex flex-wrap gap-1.5 pt-1">
-          {project.technologies.map((tech) => (
+        <div className="flex flex-wrap gap-1.5 pt-0.5">
+          {project.technologies.slice(0, 5).map((tech) => (
             <span
               key={tech}
-              className="text-[11px] font-mono px-2.5 py-0.5 rounded-md bg-[var(--bg-subtle)] border border-[var(--border-subtle)] text-[var(--text-secondary)]"
+              className="text-[11px] font-mono px-2 py-0.5 rounded-md bg-[var(--bg-subtle)] border border-[var(--border-subtle)] text-[var(--text-secondary)]"
             >
               {tech}
             </span>
           ))}
+          {project.technologies.length > 5 && (
+            <span className="text-[11px] font-mono px-2 py-0.5 rounded-md bg-[var(--bg-subtle)] text-[var(--text-muted)]">
+              +{project.technologies.length - 5}
+            </span>
+          )}
         </div>
 
-        {/* 2-3 Key Findings / Outcomes supported by actual evidence */}
-        <div className="space-y-1.5 pt-2">
-          <div className="text-[11px] font-mono font-semibold uppercase tracking-wider text-[var(--text-muted)]">
-            Key Outcomes &amp; Findings:
+        {/* Expand Downward Trigger Button */}
+        <div className="pt-1">
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="w-full flex items-center justify-between py-2 px-3 rounded-lg bg-[var(--bg-subtle)] hover:bg-[var(--border-subtle)] border border-[var(--border-subtle)] text-xs font-mono text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all"
+          >
+            <span className="flex items-center gap-1.5 font-medium">
+              {isExpanded ? (
+                <>
+                  <ChevronUp className="w-3.5 h-3.5 text-emerald-500" />
+                  <span>Hide Findings &amp; Evidence</span>
+                </>
+              ) : (
+                <>
+                  <ChevronDown className="w-3.5 h-3.5 text-emerald-500" />
+                  <span>Expand Findings &amp; Evidence Preview</span>
+                </>
+              )}
+            </span>
+            <span className="text-[10px] text-emerald-500 font-semibold">
+              {isExpanded ? "Collapse" : "Expand"}
+            </span>
+          </button>
+        </div>
+
+        {/* Expandable Section: Expands Downward when Clicked */}
+        {isExpanded && (
+          <div className="space-y-3.5 pt-2 border-t border-[var(--border-subtle)] animate-in fade-in slide-in-from-top-1 duration-200">
+            {/* 2-3 Key Findings / Outcomes supported by actual evidence */}
+            <div className="space-y-1.5">
+              <div className="text-[11px] font-mono font-semibold uppercase tracking-wider text-[var(--text-muted)]">
+                Key Outcomes &amp; Findings:
+              </div>
+              <ul className="space-y-1.5">
+                {project.keyFindings.slice(0, 3).map((finding, idx) => (
+                  <li key={idx} className="flex items-start gap-2 text-xs text-[var(--text-secondary)] leading-relaxed">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
+                    <span>{finding}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Authentic Project Evidence Preview */}
+            <div>
+              {renderEvidencePreview()}
+            </div>
           </div>
-          <ul className="space-y-1.5">
-            {project.keyFindings.slice(0, 3).map((finding, idx) => (
-              <li key={idx} className="flex items-start gap-2 text-xs text-[var(--text-secondary)] leading-relaxed">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
-                <span>{finding}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Authentic Project Evidence Preview */}
-        <div className="pt-2">
-          {renderEvidencePreview()}
-        </div>
+        )}
       </div>
 
       {/* Action Footer */}
-      <div className="pt-5 mt-5 border-t border-[var(--border-subtle)] flex flex-wrap items-center justify-between gap-3">
+      <div className="pt-4 mt-4 border-t border-[var(--border-subtle)] flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-3">
           <Link
             href={`/projects/${project.slug}`}
-            className="inline-flex items-center gap-2 text-xs font-semibold text-emerald-500 hover:text-emerald-400 transition-colors group-hover:translate-x-0.5 duration-200"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-500 hover:text-emerald-400 transition-colors group-hover:translate-x-0.5 duration-200"
           >
             <span>Read Case Study</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -210,10 +257,10 @@ END;`}
               href={project.liveDashboardUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-500 hover:bg-emerald-500/20 text-xs font-semibold transition-all"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/30 text-emerald-500 hover:bg-emerald-500/20 text-xs font-semibold transition-all"
               title="Open verified dashboard on Tableau Public"
             >
-              <ExternalLink className="w-3.5 h-3.5" />
+              <ExternalLink className="w-3 h-3" />
               <span>Live Dashboard</span>
             </a>
           )}

@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-import { Cpu, Check } from "lucide-react";
+import React, { useState } from "react";
+import { Cpu, Check, ChevronDown, ChevronUp, Layers } from "lucide-react";
 
 interface SkillGroup {
   category: string;
@@ -84,59 +84,118 @@ const SKILL_GROUPS: SkillGroup[] = [
 ];
 
 export function SkillsMatrix() {
+  const [expandedCards, setExpandedCards] = useState<Record<string, boolean>>({});
+
+  const toggleCard = (category: string) => {
+    setExpandedCards((prev) => ({
+      ...prev,
+      [category]: !prev[category],
+    }));
+  };
+
+  const allExpanded = SKILL_GROUPS.every((g) => expandedCards[g.category]);
+
+  const toggleAll = () => {
+    const nextState = !allExpanded;
+    const updated: Record<string, boolean> = {};
+    SKILL_GROUPS.forEach((g) => {
+      updated[g.category] = nextState;
+    });
+    setExpandedCards(updated);
+  };
+
   return (
-    <section id="skills" className="py-20 md:py-28 bg-[var(--bg-page)] border-t border-[var(--border-subtle)]">
+    <section id="skills" className="py-16 md:py-24 bg-[var(--bg-page)] border-t border-[var(--border-subtle)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
           <div>
-            <div className="inline-flex items-center gap-2 text-xs font-mono text-emerald-500 uppercase tracking-widest mb-2 font-semibold">
+            <div className="inline-flex items-center gap-2 text-xs font-mono text-emerald-500 uppercase tracking-widest mb-1.5 font-semibold">
               <Cpu className="w-3.5 h-3.5" />
               <span>Technical Skills</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[var(--text-primary)] tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[var(--text-primary)] tracking-tight">
               Categorized Technical Competencies
             </h2>
-            <p className="text-sm sm:text-base text-[var(--text-secondary)] mt-2 max-w-2xl">
-              Clean overview of core technologies across analytics, database engineering, software development, and machine learning.
+            <p className="text-xs sm:text-sm text-[var(--text-secondary)] mt-1.5 max-w-2xl">
+              Compact overview of core technologies across analytics, databases, software development, and machine learning.
             </p>
           </div>
 
-          <div className="text-xs font-mono text-[var(--text-secondary)] bg-[var(--bg-card)] p-3 rounded-lg border border-[var(--border-subtle)] max-w-sm">
-            <span className="text-emerald-500 font-semibold">Evidence-Based:</span> Grounded in commercial production work at Capgemini, postgraduate coursework at Leicester, and verified project repos.
+          <div className="flex items-center gap-3 self-start md:self-auto">
+            <button
+              onClick={toggleAll}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[var(--bg-card)] border border-[var(--border-subtle)] text-xs font-mono text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-emerald-500/40 transition-colors"
+            >
+              <Layers className="w-3.5 h-3.5 text-emerald-500" />
+              <span>{allExpanded ? "Collapse All" : "Expand All"}</span>
+            </button>
           </div>
         </div>
 
-        {/* 6 Clean Categorized Skill Groups Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {SKILL_GROUPS.map((group) => (
-            <div
-              key={group.category}
-              className="rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-emerald-500/40 p-6 flex flex-col justify-between transition-all duration-200"
-            >
-              <div>
-                <h3 className="text-base sm:text-lg font-bold text-[var(--text-primary)] mb-1">
-                  {group.category}
-                </h3>
-                <p className="text-xs text-[var(--text-secondary)] mb-4 leading-relaxed">
-                  {group.description}
-                </p>
+        {/* 6 Compact Categorized Skill Groups Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {SKILL_GROUPS.map((group) => {
+            const isExpanded = !!expandedCards[group.category];
+            const visibleSkills = isExpanded ? group.skills : group.skills.slice(0, 3);
+            const hiddenCount = group.skills.length - 3;
 
-                {/* Clean Pill Labels */}
-                <div className="flex flex-wrap gap-2">
-                  {group.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="inline-flex items-center gap-1.5 text-xs font-mono px-3 py-1.5 rounded-lg bg-[var(--bg-subtle)] border border-[var(--border-subtle)] text-[var(--text-primary)] font-medium"
-                    >
-                      <Check className="w-3 h-3 text-emerald-500 shrink-0" />
-                      <span>{skill}</span>
+            return (
+              <div
+                key={group.category}
+                className="rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-emerald-500/40 p-4 sm:p-5 flex flex-col justify-between transition-all duration-200"
+              >
+                <div>
+                  {/* Top Bar: Title & Count Badge */}
+                  <div className="flex items-center justify-between mb-1.5">
+                    <h3 className="text-sm sm:text-base font-bold text-[var(--text-primary)]">
+                      {group.category}
+                    </h3>
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--bg-subtle)] text-[var(--text-muted)] border border-[var(--border-subtle)] font-medium">
+                      {group.skills.length} skills
                     </span>
-                  ))}
+                  </div>
+
+                  {/* Concise 1-line Description */}
+                  <p className="text-xs text-[var(--text-secondary)] mb-3 leading-relaxed line-clamp-1">
+                    {group.description}
+                  </p>
+
+                  {/* Skill Pills (Top 3 default, all when expanded) */}
+                  <div className="flex flex-wrap gap-1.5">
+                    {visibleSkills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="inline-flex items-center gap-1 text-[11px] font-mono px-2.5 py-1 rounded-md bg-[var(--bg-subtle)] border border-[var(--border-subtle)] text-[var(--text-primary)] font-medium"
+                      >
+                        <Check className="w-2.5 h-2.5 text-emerald-500 shrink-0" />
+                        <span>{skill}</span>
+                      </span>
+                    ))}
+                  </div>
                 </div>
+
+                {/* Expand / Collapse Downward Toggle Button */}
+                {hiddenCount > 0 && (
+                  <div className="pt-3 mt-3 border-t border-[var(--border-subtle)]">
+                    <button
+                      onClick={() => toggleCard(group.category)}
+                      className="w-full flex items-center justify-between text-xs font-mono text-[var(--text-secondary)] hover:text-emerald-500 transition-colors py-0.5 group"
+                    >
+                      <span className="flex items-center gap-1">
+                        <span>{isExpanded ? "Show less" : `+${hiddenCount} more skills`}</span>
+                      </span>
+                      {isExpanded ? (
+                        <ChevronUp className="w-3.5 h-3.5 text-emerald-500 transition-transform" />
+                      ) : (
+                        <ChevronDown className="w-3.5 h-3.5 text-[var(--text-muted)] group-hover:text-emerald-500 transition-transform" />
+                      )}
+                    </button>
+                  </div>
+                )}
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
