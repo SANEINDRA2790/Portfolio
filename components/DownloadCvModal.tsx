@@ -232,3 +232,4 @@ export function DownloadCvModal({ isOpen, onClose }: DownloadCvModalProps) {
     </div>
   );
 }
+

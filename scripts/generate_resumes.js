@@ -399,3 +399,4 @@ generateIndiaResume(indiaResumePath);
 
 fs.copyFileSync(ukCvPath, fallbackResumePath);
 console.log(`Updated default ${fallbackResumePath} with UK CV (${fs.statSync(fallbackResumePath).size} bytes)`);
+

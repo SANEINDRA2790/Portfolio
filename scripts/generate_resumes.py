@@ -433,3 +433,4 @@ if __name__ == "__main__":
     with open(uk_cv_path, "rb") as src, open(fallback_resume_path, "wb") as dst:
         dst.write(src.read())
     print(f"Updated default {fallback_resume_path} with UK CV ({os.path.getsize(fallback_resume_path)} bytes)")
+
