@@ -19,26 +19,26 @@ export function CodeSnippetViewer({ title, language, code }: CodeSnippetViewerPr
   };
 
   return (
-    <div className="rounded-xl bg-zinc-950 border border-white/10 overflow-hidden font-mono text-xs shadow-xl">
+    <div className="rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] overflow-hidden font-mono text-xs shadow-md">
       {/* Title bar */}
-      <div className="flex items-center justify-between px-4 py-2.5 bg-zinc-900/80 border-b border-white/[0.06]">
+      <div className="flex items-center justify-between px-4 py-2.5 bg-[var(--bg-subtle)] border-b border-[var(--border-subtle)]">
         <div className="flex items-center gap-2">
-          <Code2 className="w-4 h-4 text-emerald-400" />
-          <span className="text-zinc-200 font-semibold">{title}</span>
-          <span className="text-[10px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-400 uppercase">
+          <Code2 className="w-4 h-4 text-emerald-500" />
+          <span className="text-[var(--text-primary)] font-semibold">{title}</span>
+          <span className="text-[10px] px-2 py-0.5 rounded bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--text-muted)] uppercase font-semibold">
             {language}
           </span>
         </div>
 
         <button
           onClick={handleCopy}
-          className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-300 hover:text-white transition-colors text-[11px]"
+          className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-[var(--bg-card)] hover:bg-[var(--border-subtle)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors text-[11px] border border-[var(--border-subtle)]"
           title="Copy code snippet"
         >
           {copied ? (
             <>
-              <Check className="w-3.5 h-3.5 text-emerald-400" />
-              <span className="text-emerald-400">Copied!</span>
+              <Check className="w-3.5 h-3.5 text-emerald-500" />
+              <span className="text-emerald-500 font-semibold">Copied!</span>
             </>
           ) : (
             <>
@@ -50,7 +50,7 @@ export function CodeSnippetViewer({ title, language, code }: CodeSnippetViewerPr
       </div>
 
       {/* Code body */}
-      <div className="p-4 overflow-x-auto text-emerald-300/90 leading-relaxed max-h-96">
+      <div className="p-4 overflow-x-auto text-emerald-600 dark:text-emerald-400 leading-relaxed max-h-96 bg-[var(--bg-card)]">
         <pre>
           <code>{code}</code>
         </pre>
@@ -58,4 +58,3 @@ export function CodeSnippetViewer({ title, language, code }: CodeSnippetViewerPr
     </div>
   );
 }
-

@@ -4,13 +4,14 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Indra Kiran Sane | Data Analyst, Aspiring Data Scientist & Software Engineer",
   description:
-  "Professional portfolio of Indra Kiran Sane — Data Analyst and Software Engineer with 2+ years of enterprise experience at Capgemini and MSc Data Science candidate at the University of Leicester, UK. Specializing in SQL optimization, Power BI, Python analytics, and full-stack systems.",
+    "Professional portfolio of Indra Kiran Sane — Data Analyst and Software Engineer with 2+ years of enterprise experience at Capgemini and MSc Data Science with Industry candidate at the University of Leicester, UK (2026 – 2028). Specializing in SQL optimization, Power BI, Tableau, Python analytics, and full-stack systems.",
   keywords: [
     "Indra Kiran Sane",
     "Data Analyst UK",
     "Business Intelligence Analyst",
     "Software Engineer",
-    "MSc Data Science Leicester",
+    "MSc Data Science with Industry",
+    "University of Leicester",
     "SQL Optimization",
     "Power BI Specialist",
     "Tableau Dashboards",
@@ -46,6 +47,8 @@ const jsonLd = {
   "@type": "Person",
   name: "Indra Kiran Sane",
   jobTitle: "Data Analyst & Software Engineer",
+  email: "saneindradev2790@gmail.com",
+  telephone: "+44 07344738617",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Leicester",
@@ -59,6 +62,10 @@ const jsonLd = {
     {
       "@type": "EducationalOrganization",
       name: "Sreenidhi Institute of Science and Technology",
+    },
+    {
+      "@type": "EducationalOrganization",
+      name: "Narayana Junior College",
     },
   ],
   worksFor: {
@@ -91,7 +98,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col font-sans bg-[#09090b] text-[#ededed]">
+      <body className="min-h-full flex flex-col font-sans bg-[var(--bg-page)] text-[var(--text-primary)]">
         {children}
       </body>
     </html>

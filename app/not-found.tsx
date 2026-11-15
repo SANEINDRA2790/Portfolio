@@ -4,7 +4,7 @@ import { ArrowLeft, Database, Home, Mail, FolderGit2 } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-[#09090b] text-[#ededed] flex flex-col items-center justify-center px-4 font-mono">
+    <div className="min-h-screen bg-[var(--bg-page)] text-[var(--text-primary)] flex flex-col items-center justify-center px-4 font-mono">
       {/* Background radial glow */}
       <div className="absolute w-[500px] h-[300px] bg-emerald-500/10 blur-[120px] rounded-full pointer-events-none" />
 

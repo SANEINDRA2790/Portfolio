@@ -13,7 +13,7 @@ import { Footer } from "@/components/Footer";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#09090b] text-[#ededed]">
+    <div className="min-h-screen flex flex-col bg-[var(--bg-page)] text-[var(--text-primary)]">
       {/* Navigation */}
       <Navbar />
 

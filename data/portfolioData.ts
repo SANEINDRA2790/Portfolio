@@ -1,3 +1,7 @@
+import { EDUCATION_DATA, EducationItem } from "./education";
+import { CERTIFICATES_DATA, CertificateItem } from "./certificates";
+import { DOCUMENTS_DATA, DocumentItem } from "./documents";
+
 export interface Project {
   slug: string;
   title: string;
@@ -19,6 +23,9 @@ export interface Project {
   pythonSnippet?: string;
   githubUrl?: string;
   liveDemoUrl?: string;
+  liveDashboardUrl?: string;
+  verifiedPlatform?: string;
+  embedUrl?: string;
 }
 
 export interface Experience {
@@ -70,10 +77,12 @@ export const PORTFOLIO_DATA = {
     name: "Indra Kiran Sane",
     primaryRole: "Data Analyst | Aspiring Data Scientist | Software Engineer",
     shortBio:
-      "I bridge software engineering and data analytics to transform complex data into meaningful insights and practical solutions. With professional experience in application development, database optimization and analytical workflows, I am building expertise in data science and intelligent systems.",
+      "I bridge software engineering and data analytics to transform complex data into meaningful insights and practical solutions. With professional experience in application development, database optimization and analytical workflows, I am pursuing MSc Data Science with Industry at the University of Leicester (2026 – 2028).",
     location: "Leicester, United Kingdom",
     ukWorkStatus: "Based in Leicester, UK • Open to UK Data & Software Roles",
-    email: "indrakiran.sane@email.com", // Placeholder: update to your primary email
+    email: "saneindradev2790@gmail.com",
+    phone: "+44 07344738617",
+    phoneTel: "+4407344738617",
     linkedIn: "https://www.linkedin.com/in/indrakiran-sane", // Update to your exact profile
     github: "https://github.com/SANEINDRA2790",
     resumePath: "/resume.pdf", // Place your resume PDF in public/resume.pdf
@@ -91,9 +100,9 @@ export const PORTFOLIO_DATA = {
       subtext: "Production full-stack engineering (.NET Core Web API, Angular, MySQL) in enterprise environment",
     },
     {
-      metric: "MSc Candidate",
+      metric: "MSc 2026–28",
       label: "University of Leicester",
-      subtext: "Postgraduate specialization in Data Science, statistical modeling & machine learning",
+      subtext: "MSc Data Science with Industry postgraduate candidate, statistical modeling & ML",
     },
     {
       metric: "6 Verified",
@@ -411,11 +420,14 @@ DELIMITER ;`,
     },
     {
       slug: "food-delivery-performance-bi",
-      title: "Food Delivery Fleet & Delivery Performance Analytics",
-      tagline: "Tableau business intelligence dashboards analyzing courier transit times, weather impacts, and fulfilment bottlenecks.",
+      title: "Food Delivery Analysis — Tableau",
+      tagline: "Tableau Public interactive operational dashboard analyzing courier transit times, weather impacts, and fulfilment bottlenecks.",
       category: "BI & Dashboards",
       featured: true,
       technologies: ["Tableau", "SQL", "Python", "Business Intelligence", "Operational Metrics"],
+      verifiedPlatform: "Tableau Public",
+      liveDashboardUrl: "https://public.tableau.com/app/profile/sane.indra.kiran/viz/TABLEAU_ZOMATO_ANALYSIS_PROJECTedit/DELIVERY_ANALYSIS_analysis",
+      embedUrl: "https://public.tableau.com/views/TABLEAU_ZOMATO_ANALYSIS_PROJECTedit/DELIVERY_ANALYSIS_analysis?:language=en-US&:embed=true&:showVizHome=no&:toolbar=yes",
       businessObjective:
         "Provide dispatch operations managers with actionable visibility into order lead times, courier utilization, and customer churn drivers across metropolitan delivery zones.",
       problemStatement:
@@ -527,83 +539,11 @@ print(f"Evaluation Test RMSE: {rmse:.2f}")`,
     },
   ] as Project[],
 
-  education: [
-    {
-      institution: "University of Leicester",
-      degree: "MSc in Data Science",
-      period: "2024 – Present (Expected 2025)",
-      location: "Leicester, United Kingdom",
-      focus: "Advanced Statistical Analysis, Machine Learning, Big Data Analytics & Research Methods",
-      highlights: [
-        "Postgraduate specialization developing computational models, advanced machine learning, and statistical inference.",
-        "Deepening research into scalable data processing, predictive modeling algorithms, and empirical evaluation.",
-        "Active student member within UK data science and technology cohorts.",
-      ],
-    },
-    {
-      institution: "Sreenidhi Institute of Science and Technology",
-      degree: "B.Tech in Electronics and Communication Engineering",
-      period: "2018 – 2022",
-      location: "Hyderabad, India",
-      focus: "Embedded Systems, Signal Processing, Computational Mathematics & Software Fundamentals",
-      highlights: [
-        "Built strong mathematical foundations in linear algebra, multivariable calculus, and probability.",
-        "Authored and published 2 peer-reviewed research papers in international journals during undergraduate tenure.",
-        "Completed hands-on software and embedded engineering projects combining IoT telemetry with algorithmic processing.",
-      ],
-    },
-  ] as Education[],
+  education: EDUCATION_DATA,
 
-  certifications: [
-    {
-      title: "Microsoft Certified: Azure AI Engineer Associate",
-      code: "AI-102",
-      issuer: "Microsoft",
-      badgeColor: "#0078D4",
-      status: "Certified",
-      description: "Designing and implementing AI solutions using Azure Cognitive Services, Cognitive Search, and Azure OpenAI.",
-    },
-    {
-      title: "Microsoft Certified: Azure AI Fundamentals",
-      code: "AI-900",
-      issuer: "Microsoft",
-      badgeColor: "#0078D4",
-      status: "Certified",
-      description: "Demonstrating foundational knowledge of machine learning (ML) and artificial intelligence (AI) concepts on Azure.",
-    },
-    {
-      title: "Microsoft Certified: Power BI Data Analyst Associate",
-      code: "PL-300",
-      issuer: "Microsoft",
-      badgeColor: "#F2C811",
-      status: "Certified",
-      description: "Transforming enterprise data into actionable business intelligence using Power BI, DAX, and automated dataflows.",
-    },
-    {
-      title: "AWS Certified Cloud Practitioner",
-      code: "CLF-C01 / CLF-C02",
-      issuer: "Amazon Web Services",
-      badgeColor: "#FF9900",
-      status: "Certified",
-      description: "Comprehensive understanding of AWS Cloud infrastructure, security, architecture principles, and cloud economics.",
-    },
-    {
-      title: "Google Cloud Associate Cloud Engineer",
-      code: "ACE",
-      issuer: "Google Cloud",
-      badgeColor: "#4285F4",
-      status: "Certified",
-      description: "Deploying applications, monitoring operations, and managing enterprise cloud solutions on Google Cloud Platform.",
-    },
-    {
-      title: "Python Fundamentals & Programming",
-      code: "NASSCOM Cert",
-      issuer: "NASSCOM",
-      badgeColor: "#10B981",
-      status: "Certified",
-      description: "Verified competency in Python data structures, functional programming, data wrangling, and algorithmic efficiency.",
-    },
-  ] as Certification[],
+  certifications: CERTIFICATES_DATA,
+
+  documents: DOCUMENTS_DATA,
 
   publications: [
     {
