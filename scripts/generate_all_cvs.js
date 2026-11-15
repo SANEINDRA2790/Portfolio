@@ -429,6 +429,8 @@ for (const role of ROLES) {
 // Also keep the root aliases up-to-date
 const publicDir = path.join(__dirname, "..", "public");
 fs.copyFileSync(path.join(cvDir, "Indra_Kiran_Sane_Data_Analyst_UK.pdf"), path.join(publicDir, "Indra_Kiran_Sane_CV_UK.pdf"));
+fs.copyFileSync(path.join(cvDir, "Indra_Kiran_Sane_Data_Analyst_USA.pdf"), path.join(publicDir, "Indra_Kiran_Sane_Resume_USA.pdf"));
 fs.copyFileSync(path.join(cvDir, "Indra_Kiran_Sane_Software_Engineer_India.pdf"), path.join(publicDir, "Indra_Kiran_Sane_Resume_India.pdf"));
 fs.copyFileSync(path.join(cvDir, "Indra_Kiran_Sane_Data_Analyst_UK.pdf"), path.join(publicDir, "resume.pdf"));
 console.log("Synced root resume.pdf and legacy presets.");
+

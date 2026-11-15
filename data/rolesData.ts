@@ -483,3 +483,4 @@ export const ROLES_CONFIG: Record<ProfessionalRole, RoleConfig> = {
     },
   },
 };
+

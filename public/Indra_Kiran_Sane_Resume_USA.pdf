@@ -1,0 +1,134 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Contents 4 0 R /Resources << /Font << /F1 5 0 R /F2 6 0 R /F3 7 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 10068 >>
+stream
+BT /F2 18.00 Tf 0.06 0.10 0.16 rg 40.00 808.00 Td (INDRA KIRAN SANE) Tj ET
+BT /F2 9.80 Tf 0.08 0.35 0.60 rg 40.00 794.00 Td (Data Analyst | SQL Database Optimization & BI Automation) Tj ET
+BT /F1 8.00 Tf 0.30 0.35 0.40 rg 40.00 781.50 Td (Email: saneindradev2790@gmail.com  |  Phone: +44 07344738617  |  Location: Leicester, UK) Tj ET
+BT /F1 8.00 Tf 0.30 0.35 0.40 rg 40.00 772.00 Td (LinkedIn: linkedin.com/in/indrakiran-sane  |  GitHub: github.com/SANEINDRA2790  |  Portfolio: Live Case Studies) Tj ET
+0.90 w 0.08 0.35 0.60 RG 40.00 768.50 m 555.28 768.50 l S
+BT /F2 10.00 Tf 0.08 0.35 0.60 rg 40.00 748.00 Td (EXECUTIVE SUMMARY) Tj ET
+0.75 w 0.18 0.50 0.75 RG 40.00 744.50 m 555.28 744.50 l S
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 40.00 735.50 Td (Quant-driven Data Analyst with 2+ years of enterprise experience at Capgemini specializing in SQL) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 40.00 724.50 Td (query optimization, business intelligence, and automated reporting pipelines. Spearheaded stored) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 40.00 713.50 Td (procedure refactoring that reduced database execution times by 20% across mission-critical) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 40.00 702.50 Td (enterprise systems. Proven expertise in building interactive executive dashboards in Tableau and) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 40.00 691.50 Td (Power BI, engineering automated data pipelines using Python \(Pandas, NumPy\) and Excel VBA, and) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 40.00 680.50 Td (extracting actionable commercial insights from high-volume transactional repositories.) Tj ET
+BT /F2 10.00 Tf 0.08 0.35 0.60 rg 40.00 656.50 Td (CORE TECHNICAL COMPETENCIES) Tj ET
+0.75 w 0.18 0.50 0.75 RG 40.00 653.00 m 555.28 653.00 l S
+BT /F2 8.30 Tf 0.08 0.12 0.18 rg 40.00 644.00 Td (Databases & SQL Engineering:) Tj ET
+BT /F1 8.00 Tf 0.20 0.24 0.28 rg 170.00 644.00 Td (SQL, MySQL, SQL Query Optimization, Stored Procedures, Relational Schema) Tj ET
+BT /F1 8.00 Tf 0.20 0.24 0.28 rg 170.00 633.50 Td (Design \(3NF\), B-Tree Indexing, EXPLAIN Analysis) Tj ET
+BT /F2 8.30 Tf 0.08 0.12 0.18 rg 40.00 622.00 Td (Business Intelligence & Reporting:) Tj ET
+BT /F1 8.00 Tf 0.20 0.24 0.28 rg 170.00 622.00 Td (Power BI, Tableau \(Tableau Public\), Excel Power Pivot & Slicers, VBA &) Tj ET
+BT /F1 8.00 Tf 0.20 0.24 0.28 rg 170.00 611.50 Td (Macros, Dynamic DAX, CSAT KPI Trackers) Tj ET
+BT /F2 8.30 Tf 0.08 0.12 0.18 rg 40.00 600.00 Td (Data Analytics & Python:) Tj ET
+BT /F1 8.00 Tf 0.20 0.24 0.28 rg 170.00 600.00 Td (Python \(Pandas, NumPy\), Exploratory Data Analysis \(EDA\), Statistical) Tj ET
+BT /F1 8.00 Tf 0.20 0.24 0.28 rg 170.00 589.50 Td (Analysis, Data Cleaning & Wrangling, Outlier Imputation, Hypothesis Testing) Tj ET
+BT /F2 8.30 Tf 0.08 0.12 0.18 rg 40.00 578.00 Td (Software & Cloud Foundations:) Tj ET
+BT /F1 8.00 Tf 0.20 0.24 0.28 rg 170.00 578.00 Td (C#, .NET Core Web API, RESTful APIs, Microsoft Azure, Git Version Control) Tj ET
+BT /F2 10.00 Tf 0.08 0.35 0.60 rg 40.00 553.50 Td (PROFESSIONAL EXPERIENCE) Tj ET
+0.75 w 0.18 0.50 0.75 RG 40.00 550.00 m 555.28 550.00 l S
+BT /F2 9.20 Tf 0.08 0.12 0.18 rg 40.00 541.00 Td (Senior Analyst \(Software Engineer\)  |  Capgemini) Tj ET
+BT /F3 8.20 Tf 0.35 0.40 0.45 rg 320.08 541.00 Td (October 2023 - 2024  \(Enterprise Solutions Unit\)) Tj ET
+BT /F2 8.20 Tf 0.15 0.55 0.42 rg 42.00 529.50 Td (-) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 53.00 529.50 Td (Engineered full-stack enterprise web applications using .NET Core Web API, Angular, and MySQL) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 53.00 519.00 Td (within Agile production sprints.) Tj ET
+BT /F2 8.20 Tf 0.15 0.55 0.42 rg 42.00 507.00 Td (-) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 53.00 507.00 Td (Refactored mission-critical SQL queries and transactional stored procedures, achieving a) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 53.00 496.50 Td (documented 20% reduction in database execution times.) Tj ET
+BT /F2 8.20 Tf 0.15 0.55 0.42 rg 42.00 484.50 Td (-) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 53.00 484.50 Td (Collaborated with cloud engineering teams on Microsoft Azure deployment pipelines, environment) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 53.00 474.00 Td (configuration, and backend API monitoring.) Tj ET
+BT /F2 8.20 Tf 0.15 0.55 0.42 rg 42.00 462.00 Td (-) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 53.00 462.00 Td (Conducted data cleansing and exploratory data reporting to support operational decision-making) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 53.00 451.50 Td (across core enterprise modules.) Tj ET
+BT /F2 9.20 Tf 0.08 0.12 0.18 rg 40.00 439.50 Td (Junior Data Analyst Trainee  |  Innomatics Research Labs) Tj ET
+BT /F3 8.20 Tf 0.35 0.40 0.45 rg 300.48 439.50 Td (December 2022 - August 2023  \(Data Science Division\)) Tj ET
+BT /F2 8.20 Tf 0.15 0.55 0.42 rg 42.00 428.00 Td (-) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 53.00 428.00 Td (Processed and analyzed large tabular datasets utilizing Python \(Pandas, NumPy\) to isolate) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 53.00 417.50 Td (business trends and data anomalies.) Tj ET
+BT /F2 8.20 Tf 0.15 0.55 0.42 rg 42.00 405.50 Td (-) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 53.00 405.50 Td (Designed interactive executive dashboards in Tableau and Power BI, translating raw transactional) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 53.00 395.00 Td (logs into KPI monitors.) Tj ET
+BT /F2 8.20 Tf 0.15 0.55 0.42 rg 42.00 383.00 Td (-) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 53.00 383.00 Td (Automated weekly reporting pipelines using SQL queries, Excel formulas, and VBA macro routines,) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 53.00 372.50 Td (eliminating 14 hours of manual copy-paste overhead per week.) Tj ET
+BT /F2 8.20 Tf 0.15 0.55 0.42 rg 42.00 360.50 Td (-) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 53.00 360.50 Td (Implemented supervised machine learning workflows including feature selection, data) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 53.00 350.00 Td (normalization, and baseline predictive regression models.) Tj ET
+BT /F2 10.00 Tf 0.08 0.35 0.60 rg 40.00 325.00 Td (EDUCATION & ACADEMIC BACKGROUND) Tj ET
+0.75 w 0.18 0.50 0.75 RG 40.00 321.50 m 555.28 321.50 l S
+BT /F2 9.20 Tf 0.08 0.12 0.18 rg 40.00 312.50 Td (MSc Data Science with Industry \(Postgraduate Degree\)  |  University of Leicester) Tj ET
+BT /F3 8.20 Tf 0.35 0.40 0.45 rg 359.28 312.50 Td (2026 - 2028  \(Leicester, United Kingdom\)) Tj ET
+BT /F2 8.20 Tf 0.15 0.55 0.42 rg 42.00 301.00 Td (-) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 53.00 301.00 Td (Current Postgraduate Specialization: Advanced statistical modeling, scalable data architectures,) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 53.00 290.50 Td (machine learning algorithms, and UK industrial placement pathway.) Tj ET
+BT /F2 9.20 Tf 0.08 0.12 0.18 rg 40.00 278.50 Td (Bachelor of Technology \(B.Tech\) - Electronics & Communication  |  Sreenidhi Institute of Science & Technology) Tj ET
+BT /F3 8.20 Tf 0.35 0.40 0.45 rg 403.38 278.50 Td (2018 - 2022  \(Hyderabad, India\)) Tj ET
+BT /F2 8.20 Tf 0.15 0.55 0.42 rg 42.00 267.00 Td (-) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 53.00 267.00 Td (Coursework in computational mathematics, linear algebra, signal processing, and algorithms;) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 53.00 256.50 Td (authored 2 published peer-reviewed research papers.) Tj ET
+BT /F2 10.00 Tf 0.08 0.35 0.60 rg 40.00 231.50 Td (VERIFIED PROFESSIONAL CERTIFICATIONS) Tj ET
+0.75 w 0.18 0.50 0.75 RG 40.00 228.00 m 555.28 228.00 l S
+BT /F2 8.20 Tf 0.15 0.55 0.42 rg 42.00 219.00 Td (-) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 50.00 219.00 Td (Microsoft Certified: Power BI Data Analyst Associate \(PL-300\) - DAX Formulas & Governance) Tj ET
+BT /F2 8.20 Tf 0.15 0.55 0.42 rg 42.00 207.00 Td (-) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 50.00 207.00 Td (NASSCOM Certification: Python Fundamentals and Programming - Data Wrangling & Algorithmic Design) Tj ET
+BT /F2 8.20 Tf 0.15 0.55 0.42 rg 42.00 195.00 Td (-) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 50.00 195.00 Td (Microsoft Certified: Azure AI Fundamentals \(AI-900\) - Machine Learning workloads) Tj ET
+BT /F2 8.20 Tf 0.15 0.55 0.42 rg 42.00 183.00 Td (-) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 50.00 183.00 Td (Google Cloud Associate Cloud Engineer \(ACE\) - Enterprise Cloud Infrastructure Deployment) Tj ET
+BT /F2 10.00 Tf 0.08 0.35 0.60 rg 40.00 158.00 Td (KEY TECHNICAL PROJECTS) Tj ET
+0.75 w 0.18 0.50 0.75 RG 40.00 154.50 m 555.28 154.50 l S
+BT /F2 9.20 Tf 0.08 0.12 0.18 rg 40.00 145.50 Td (Food Delivery Operational Analysis  |  Tableau Public, SQL, Python) Tj ET
+BT /F3 8.20 Tf 0.35 0.40 0.45 rg 398.48 145.50 Td (Interactive BI  \(45,000+ Orders\)) Tj ET
+BT /F2 8.20 Tf 0.15 0.55 0.42 rg 42.00 134.00 Td (-) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 53.00 134.00 Td (Engineered operational dashboard isolating courier lead times; proved kitchen preparation) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 53.00 123.50 Td (accounted for 58% of delay bottlenecks during rush periods.) Tj ET
+BT /F2 9.20 Tf 0.08 0.12 0.18 rg 40.00 111.50 Td (Enterprise Sales Order & Revenue Intelligence  |  Excel, VBA, Power Pivot) Tj ET
+BT /F3 8.20 Tf 0.35 0.40 0.45 rg 388.68 111.50 Td (BI & Dashboards  \(14 hrs/wk Saved\)) Tj ET
+BT /F2 8.20 Tf 0.15 0.55 0.42 rg 42.00 100.00 Td (-) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 53.00 100.00 Td (Standardized relational model linking Orders, Products, and Territories with automated VBA) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 53.00 89.50 Td (ingestion, eliminating 14 hours of manual copy-paste overhead per week.) Tj ET
+BT /F2 9.20 Tf 0.08 0.12 0.18 rg 40.00 77.50 Td (E-Commerce Relational Schema & SQL Tuning  |  MySQL, Stored Procedures) Tj ET
+BT /F3 8.20 Tf 0.35 0.40 0.45 rg 403.38 77.50 Td (Database Tuning  \(-93% Latency\)) Tj ET
+BT /F2 8.20 Tf 0.15 0.55 0.42 rg 42.00 66.00 Td (-) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 53.00 66.00 Td (Normalized 8-table enterprise schema in 3NF; added composite B-Tree indexing and stored) Tj ET
+BT /F1 8.20 Tf 0.15 0.18 0.22 rg 53.00 55.50 Td (procedures, cutting query execution from 1,840ms to 120ms.) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000267 00000 n 
+0000010388 00000 n 
+0000010458 00000 n 
+0000010533 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+10611
+%%EOF
