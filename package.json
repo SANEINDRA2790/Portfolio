@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "predev": "node scripts/build-css.js && node scripts/generate_resumes.js",
+    "predev": "node scripts/build-css.js && node scripts/generate_all_cvs.js",
     "dev": "next dev",
-    "prebuild": "node scripts/build-css.js && node scripts/generate_resumes.js",
+    "prebuild": "node scripts/build-css.js && node scripts/generate_all_cvs.js",
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint"

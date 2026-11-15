@@ -2,6 +2,7 @@ import React from "react";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { RecruiterSnapshot } from "@/components/RecruiterSnapshot";
+import { RoleProfileSelector } from "@/components/RoleProfileSelector";
 import { AboutMe } from "@/components/AboutMe";
 import { SkillsMatrix } from "@/components/SkillsMatrix";
 import { ExperienceTimeline } from "@/components/ExperienceTimeline";
@@ -24,6 +25,9 @@ export default function HomePage() {
 
         {/* Recruiter Fast-Track Snapshot (30-second grasp) */}
         <RecruiterSnapshot />
+
+        {/* Explore My Professional Profiles (Interactive 4-Role Selector) */}
+        <RoleProfileSelector />
 
         {/* About Me Narrative */}
         <AboutMe />

@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { Briefcase, Calendar, MapPin, CheckCircle2, TrendingUp, ChevronDown, ChevronUp } from "lucide-react";
+import { Briefcase, Calendar, MapPin, CheckCircle2, TrendingUp, ChevronDown, ChevronUp, Sparkles } from "lucide-react";
+import { useRole } from "@/context/RoleContext";
 
 interface ExperienceItem {
   company: string;
@@ -48,6 +49,7 @@ const EXPERIENCES: ExperienceItem[] = [
 ];
 
 export function ExperienceTimeline() {
+  const { roleConfig } = useRole();
   const [expandedRoles, setExpandedRoles] = useState<Record<string, boolean>>({});
 
   const toggleRole = (company: string) => {
@@ -62,15 +64,25 @@ export function ExperienceTimeline() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-10">
-          <div className="inline-flex items-center gap-2 text-xs font-mono text-emerald-500 uppercase tracking-widest mb-1.5 font-semibold">
-            <Briefcase className="w-3.5 h-3.5" />
-            <span>Professional Experience</span>
+          <div className="flex flex-wrap items-center gap-2 mb-1.5">
+            <div className="inline-flex items-center gap-2 text-xs font-mono text-emerald-500 uppercase tracking-widest font-semibold">
+              <Briefcase className="w-3.5 h-3.5" />
+              <span>Professional Experience</span>
+            </div>
+            {roleConfig && (
+              <span className="inline-flex items-center gap-1 text-[11px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold border border-emerald-500/30">
+                <Sparkles className="w-3 h-3" />
+                Emphasis for {roleConfig.shortTitle}
+              </span>
+            )}
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-[var(--text-primary)] tracking-tight">
             Commercial Experience &amp; Trainee History
           </h2>
           <p className="text-xs sm:text-sm text-[var(--text-secondary)] mt-1.5 max-w-2xl">
-            Chronological overview of enterprise software engineering at Capgemini and focused analytics training at Innomatics.
+            {roleConfig
+              ? `Production engineering and analytical responsibilities aligned with ${roleConfig.title} capabilities.`
+              : "Chronological overview of enterprise software engineering at Capgemini and focused analytics training at Innomatics."}
           </p>
         </div>
 

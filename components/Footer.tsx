@@ -58,6 +58,9 @@ export function Footer() {
             <a href="/#research" className="hover:text-[var(--text-primary)] transition-colors">
               Publications
             </a>
+            <Link href="/cv-builder" className="text-emerald-600 dark:text-emerald-400 hover:underline font-medium transition-colors">
+              CV Builder
+            </Link>
             <Link href="/documents" className="text-cyan-600 dark:text-cyan-400 hover:underline font-medium transition-colors">
               More Documents
             </Link>

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
+import Link from "next/link";
 import {
   X,
   Download,
@@ -71,6 +72,27 @@ export function DownloadCvModal({ isOpen, onClose }: DownloadCvModalProps) {
 
         {/* Modal Body: Two Format Options */}
         <div className="p-5 sm:p-6 overflow-y-auto space-y-4">
+          {/* CV Builder Banner */}
+          <div className="p-4 rounded-xl bg-gradient-to-r from-emerald-500/15 via-cyan-500/10 to-transparent border border-emerald-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="space-y-0.5">
+              <div className="flex items-center gap-1.5 text-xs font-bold text-emerald-500 font-mono">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Looking for a Specific Role or US Resume?</span>
+              </div>
+              <p className="text-xs text-[var(--text-secondary)]">
+                Customize your CV for <strong>Data Analyst</strong>, <strong>Data Scientist</strong>, <strong>AI/ML</strong>, or <strong>Software Engineer</strong> across UK, US, and India templates.
+              </p>
+            </div>
+            <Link
+              href="/cv-builder"
+              onClick={onClose}
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold text-xs shrink-0 transition-all shadow-sm"
+            >
+              <span>Open CV Builder</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* OPTION 1: UK Standard CV */}
             <div className="rounded-xl bg-[var(--bg-page)] border-2 border-emerald-500/40 hover:border-emerald-500 p-5 flex flex-col justify-between transition-all duration-200 shadow-sm relative group">

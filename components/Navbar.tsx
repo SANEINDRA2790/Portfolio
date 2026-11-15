@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Download, Menu, X, Database, Sun, Moon, FileText } from "lucide-react";
+import { Download, Menu, X, Database, Sun, Moon, FileText, Sparkles } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
 import { useCvModal } from "@/context/OwnerContext";
 
@@ -96,6 +96,16 @@ export function Navbar() {
 
         {/* Action CTAs */}
         <div className="hidden sm:flex items-center gap-2">
+          {/* CV Builder Shortcut CTA */}
+          <Link
+            href="/cv-builder"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/20 transition-all text-xs font-semibold"
+            title="Dynamic CV & Resume Generator"
+          >
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>CV Builder</span>
+          </Link>
+
           {/* Dedicated "More Documents" Button */}
           <Link
             href="/documents"
@@ -133,6 +143,14 @@ export function Navbar() {
 
         {/* Mobile menu trigger */}
         <div className="flex sm:hidden items-center gap-1.5">
+          <Link
+            href="/cv-builder"
+            className="p-1.5 rounded-md bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs"
+            title="CV Builder"
+          >
+            <Sparkles className="w-4 h-4" />
+          </Link>
+
           <Link
             href="/documents"
             className="p-1.5 rounded-md bg-cyan-500/10 border border-cyan-500/30 text-cyan-600 dark:text-cyan-300 text-xs"

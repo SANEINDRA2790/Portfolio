@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
-import { Cpu, Check, ChevronDown, ChevronUp, Layers } from "lucide-react";
+import React, { useState, useMemo } from "react";
+import { Cpu, Check, ChevronDown, ChevronUp, Layers, Sparkles } from "lucide-react";
+import { useRole } from "@/context/RoleContext";
 
 interface SkillGroup {
   category: string;
@@ -84,7 +85,28 @@ const SKILL_GROUPS: SkillGroup[] = [
 ];
 
 export function SkillsMatrix() {
+  const { activeRole, roleConfig } = useRole();
   const [expandedCards, setExpandedCards] = useState<Record<string, boolean>>({});
+
+  // When a role is active, prioritize relevant skill categories to the top
+  const sortedSkillGroups = useMemo(() => {
+    if (!roleConfig) return SKILL_GROUPS;
+
+    const priorityCategories = roleConfig.prioritizedSkills.map((p) => p.category.toLowerCase());
+
+    return [...SKILL_GROUPS].sort((a, b) => {
+      const aIndex = priorityCategories.findIndex((c) =>
+        c.includes(a.category.toLowerCase()) || a.category.toLowerCase().includes(c.split(" ")[0])
+      );
+      const bIndex = priorityCategories.findIndex((c) =>
+        c.includes(b.category.toLowerCase()) || b.category.toLowerCase().includes(c.split(" ")[0])
+      );
+
+      const aScore = aIndex === -1 ? 99 : aIndex;
+      const bScore = bIndex === -1 ? 99 : bIndex;
+      return aScore - bScore;
+    });
+  }, [roleConfig]);
 
   const toggleCard = (category: string) => {
     setExpandedCards((prev) => ({
@@ -93,12 +115,12 @@ export function SkillsMatrix() {
     }));
   };
 
-  const allExpanded = SKILL_GROUPS.every((g) => expandedCards[g.category]);
+  const allExpanded = sortedSkillGroups.every((g) => expandedCards[g.category]);
 
   const toggleAll = () => {
     const nextState = !allExpanded;
     const updated: Record<string, boolean> = {};
-    SKILL_GROUPS.forEach((g) => {
+    sortedSkillGroups.forEach((g) => {
       updated[g.category] = nextState;
     });
     setExpandedCards(updated);
@@ -110,15 +132,25 @@ export function SkillsMatrix() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
           <div>
-            <div className="inline-flex items-center gap-2 text-xs font-mono text-emerald-500 uppercase tracking-widest mb-1.5 font-semibold">
-              <Cpu className="w-3.5 h-3.5" />
-              <span>Technical Skills</span>
+            <div className="flex flex-wrap items-center gap-2 mb-1.5">
+              <div className="inline-flex items-center gap-2 text-xs font-mono text-emerald-500 uppercase tracking-widest font-semibold">
+                <Cpu className="w-3.5 h-3.5" />
+                <span>Technical Skills</span>
+              </div>
+              {roleConfig && (
+                <span className="inline-flex items-center gap-1 text-[11px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold border border-emerald-500/30">
+                  <Sparkles className="w-3 h-3" />
+                  Prioritized for {roleConfig.shortTitle}
+                </span>
+              )}
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[var(--text-primary)] tracking-tight">
               Categorized Technical Competencies
             </h2>
             <p className="text-xs sm:text-sm text-[var(--text-secondary)] mt-1.5 max-w-2xl">
-              Compact overview of core technologies across analytics, databases, software development, and machine learning.
+              {roleConfig
+                ? `Core technologies aligned with ${roleConfig.title} requirements, ordered by relevance to production responsibilities.`
+                : "Compact overview of core technologies across analytics, databases, software development, and machine learning."}
             </p>
           </div>
 
@@ -135,7 +167,8 @@ export function SkillsMatrix() {
 
         {/* 6 Compact Categorized Skill Groups Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {SKILL_GROUPS.map((group) => {
+          {sortedSkillGroups.map((group, groupIdx) => {
+            const isPriorityGroup = roleConfig && groupIdx < 2;
             const isExpanded = !!expandedCards[group.category];
             const visibleSkills = isExpanded ? group.skills : group.skills.slice(0, 3);
             const hiddenCount = group.skills.length - 3;
@@ -143,7 +176,11 @@ export function SkillsMatrix() {
             return (
               <div
                 key={group.category}
-                className="rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] hover:border-emerald-500/40 p-4 sm:p-5 flex flex-col justify-between transition-all duration-200"
+                className={`rounded-xl bg-[var(--bg-card)] border p-4 sm:p-5 flex flex-col justify-between transition-all duration-200 ${
+                  isPriorityGroup
+                    ? "border-emerald-500/40 shadow-sm shadow-emerald-500/5 ring-1 ring-emerald-500/20"
+                    : "border-[var(--border-subtle)] hover:border-emerald-500/40"
+                }`}
               >
                 <div>
                   {/* Top Bar: Title & Count Badge */}
