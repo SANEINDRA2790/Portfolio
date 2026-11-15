@@ -28,6 +28,9 @@ export function SkillsMatrix() {
     }
   };
 
+
+
+
   return (
     <section id="skills" className="py-20 bg-zinc-950/70 border-t border-white/[0.08]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
