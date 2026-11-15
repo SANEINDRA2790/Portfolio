@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useEffect } from "react";
-import { X, Download, ExternalLink, ShieldCheck, FileText } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { X, Download, ExternalLink, ShieldCheck, FileText, Upload, CheckCircle2 } from "lucide-react";
 import { CertificateItem } from "@/data/certificates";
 
 interface CertificateModalProps {
@@ -10,6 +10,9 @@ interface CertificateModalProps {
 }
 
 export function CertificateModal({ certificate, onClose }: CertificateModalProps) {
+  const [localFileUrl, setLocalFileUrl] = useState<string | null>(null);
+  const [localFileType, setLocalFileType] = useState<"pdf" | "image">("pdf");
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -17,6 +20,23 @@ export function CertificateModal({ certificate, onClose }: CertificateModalProps
     if (certificate) {
       document.body.style.overflow = "hidden";
       window.addEventListener("keydown", handleKeyDown);
+
+      // Check if user previously uploaded a file for this certificate in browser
+      try {
+        const savedFile = localStorage.getItem(`cert_file_${certificate.id}`);
+        if (savedFile) {
+          setLocalFileUrl(savedFile);
+          if (savedFile.startsWith("data:image")) {
+            setLocalFileType("image");
+          } else {
+            setLocalFileType("pdf");
+          }
+        } else {
+          setLocalFileUrl(null);
+        }
+      } catch {
+        setLocalFileUrl(null);
+      }
     }
     return () => {
       document.body.style.overflow = "unset";
@@ -25,6 +45,31 @@ export function CertificateModal({ certificate, onClose }: CertificateModalProps
   }, [certificate, onClose]);
 
   if (!certificate) return null;
+
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const isImg = file.type.includes("image");
+    setLocalFileType(isImg ? "image" : "pdf");
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      if (event.target?.result) {
+        const dataUrl = event.target.result as string;
+        setLocalFileUrl(dataUrl);
+        try {
+          localStorage.setItem(`cert_file_${certificate.id}`, dataUrl);
+        } catch {
+          // Local storage quota fallback
+        }
+      }
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const effectiveFileUrl = localFileUrl || (certificate.isUploaded ? certificate.filePath : null);
+  const effectiveFileType = localFileUrl ? localFileType : (certificate.fileType || "pdf");
 
   return (
     <div
@@ -63,19 +108,19 @@ export function CertificateModal({ certificate, onClose }: CertificateModalProps
 
         {/* Modal Body */}
         <div className="p-5 sm:p-6 overflow-y-auto space-y-5">
-          {certificate.isUploaded && certificate.filePath ? (
+          {effectiveFileUrl ? (
             /* Uploaded Certificate Document Viewer */
             <div className="space-y-4">
               <div className="w-full h-80 rounded-xl bg-[var(--bg-page)] border border-[var(--border-subtle)] overflow-hidden relative">
-                {certificate.fileType === "image" ? (
+                {effectiveFileType === "image" ? (
                   <img
-                    src={certificate.filePath}
+                    src={effectiveFileUrl}
                     alt={certificate.title}
                     className="w-full h-full object-contain"
                   />
                 ) : (
                   <iframe
-                    src={certificate.filePath}
+                    src={effectiveFileUrl}
                     title={certificate.title}
                     className="w-full h-full border-0"
                   />
@@ -84,7 +129,7 @@ export function CertificateModal({ certificate, onClose }: CertificateModalProps
 
               <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
                 <a
-                  href={certificate.filePath}
+                  href={effectiveFileUrl}
                   download={`${certificate.code}_Certificate.pdf`}
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-500 text-zinc-950 font-semibold text-xs hover:bg-emerald-400 transition-all shadow-md shadow-emerald-500/20"
                 >
@@ -92,19 +137,20 @@ export function CertificateModal({ certificate, onClose }: CertificateModalProps
                   <span>Download Certificate</span>
                 </a>
 
-                <a
-                  href={certificate.filePath}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[var(--bg-subtle)] border border-[var(--border-subtle)] text-[var(--text-primary)] font-medium text-xs hover:border-emerald-500/40 transition-all"
-                >
-                  <ExternalLink className="w-4 h-4" />
-                  <span>Open Full Size</span>
-                </a>
+                <label className="cursor-pointer inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[var(--bg-subtle)] border border-[var(--border-subtle)] text-xs text-[var(--text-primary)] hover:border-emerald-500/40 transition-colors">
+                  <Upload className="w-3.5 h-3.5 text-emerald-500" />
+                  <span>Replace File</span>
+                  <input
+                    type="file"
+                    accept=".pdf,.png,.jpg,.jpeg"
+                    onChange={handleFileUpload}
+                    className="hidden"
+                  />
+                </label>
               </div>
             </div>
           ) : (
-            /* Honest Certificate Pending Upload State */
+            /* Honest Certificate Pending Upload State with In-Modal Upload Option */
             <div className="rounded-xl bg-[var(--bg-subtle)] border border-[var(--border-subtle)] p-6 text-center space-y-4">
               <div className="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-500 mx-auto flex items-center justify-center">
                 <FileText className="w-7 h-7" />
@@ -115,11 +161,25 @@ export function CertificateModal({ certificate, onClose }: CertificateModalProps
                   Document Pending Upload
                 </span>
                 <h4 className="text-base font-bold text-[var(--text-primary)]">
-                  Official Certificate Document Pending Upload
+                  Certificate Document Pending Upload
                 </h4>
                 <p className="text-xs text-[var(--text-secondary)] max-w-md mx-auto leading-relaxed">
-                  The candidate has confirmed passing and holding this certification. The official PDF / image document is awaiting file upload to the public assets directory.
+                  The candidate holds this verified qualification. You can also upload and preview the certificate file directly below.
                 </p>
+              </div>
+
+              {/* Upload Certificate File Button */}
+              <div className="pt-1">
+                <label className="cursor-pointer inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-500 text-zinc-950 font-bold text-xs hover:bg-emerald-400 transition-all shadow-md shadow-emerald-500/20">
+                  <Upload className="w-4 h-4" />
+                  <span>Upload &amp; View Certificate (PDF / Image)</span>
+                  <input
+                    type="file"
+                    accept=".pdf,.png,.jpg,.jpeg"
+                    onChange={handleFileUpload}
+                    className="hidden"
+                  />
+                </label>
               </div>
 
               <div className="p-3.5 rounded-lg bg-[var(--bg-card)] border border-[var(--border-subtle)] text-left text-xs font-mono space-y-2">

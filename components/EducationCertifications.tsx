@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   GraduationCap,
   Award,
@@ -10,15 +10,42 @@ import {
   Eye,
   ChevronDown,
   ChevronUp,
+  Plus,
 } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
 import { CertificateItem } from "@/data/certificates";
 import { CertificateModal } from "./CertificateModal";
+import { AddCertificateModal } from "./AddCertificateModal";
 
 export function EducationCertifications() {
   const { education, certifications } = PORTFOLIO_DATA;
   const [selectedCert, setSelectedCert] = useState<CertificateItem | null>(null);
   const [expandedEdu, setExpandedEdu] = useState<Record<string, boolean>>({});
+  const [allCerts, setAllCerts] = useState<CertificateItem[]>(certifications);
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+
+  // Load custom certificates from localStorage on mount
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem("portfolio_custom_certificates");
+      if (stored) {
+        const customCerts: CertificateItem[] = JSON.parse(stored);
+        if (Array.isArray(customCerts) && customCerts.length > 0) {
+          setAllCerts((prev) => {
+            const existingIds = new Set(prev.map((c) => c.id));
+            const newOnes = customCerts.filter((c) => !existingIds.has(c.id));
+            return [...newOnes, ...prev];
+          });
+        }
+      }
+    } catch {
+      // Ignore localStorage read errors
+    }
+  }, []);
+
+  const handleAddCertificate = (newCert: CertificateItem) => {
+    setAllCerts((prev) => [newCert, ...prev]);
+  };
 
   const toggleEdu = (id: string) => {
     setExpandedEdu((prev) => ({
@@ -155,15 +182,25 @@ export function EducationCertifications() {
                 Click any certification card to open its verification preview, document viewer, or pending upload state.
               </p>
             </div>
-            <span className="text-xs font-mono text-emerald-500 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20 self-start sm:self-auto font-semibold">
-              6 Verified Credentials
-            </span>
+
+            <div className="flex flex-wrap items-center gap-2 self-start sm:self-auto">
+              <button
+                onClick={() => setIsAddModalOpen(true)}
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-emerald-500 text-zinc-950 font-bold text-xs hover:bg-emerald-400 transition-all shadow-sm"
+              >
+                <Plus className="w-3.5 h-3.5" />
+                <span>Add Certificate</span>
+              </button>
+              <span className="text-xs font-mono text-emerald-500 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20 font-semibold">
+                {allCerts.length} Verified Credentials
+              </span>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {certifications.map((cert) => (
+            {allCerts.map((cert) => (
               <div
-                key={cert.code}
+                key={cert.code + cert.title}
                 onClick={() => setSelectedCert(cert as CertificateItem)}
                 className="group rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] p-4 sm:p-5 hover:border-emerald-500/40 transition-all duration-200 cursor-pointer flex flex-col justify-between hover:shadow-lg"
               >
@@ -172,7 +209,7 @@ export function EducationCertifications() {
                     <span className="text-[11px] font-mono font-bold text-[var(--text-secondary)] flex items-center gap-1.5">
                       <span
                         className="w-2.5 h-2.5 rounded-full inline-block"
-                        style={{ backgroundColor: cert.badgeColor }}
+                        style={{ backgroundColor: cert.badgeColor || "#10b981" }}
                       />
                       {cert.issuer}
                     </span>
@@ -207,6 +244,14 @@ export function EducationCertifications() {
       <CertificateModal
         certificate={selectedCert}
         onClose={() => setSelectedCert(null)}
+      />
+
+      {/* Add Certificate Modal */}
+      <AddCertificateModal
+        isOpen={isAddModalOpen}
+        onClose={() => setIsAddModalOpen(false)}
+        onAddDocument={() => {}}
+        onAddCertificate={handleAddCertificate}
       />
     </section>
   );
